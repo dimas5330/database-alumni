@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.regis
 Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], function () {
 
     Route::view('/', 'pages.admin.dashboard')->name('admin.dashboard'); //Admin Dashboard
+
+    Route::resource('users', DashboardController::class);
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout'); //Admin Logout
 
