@@ -16,6 +16,11 @@
                         <a class="nav-link"
                             href="{{ route('users.index') }}">Kelola Users</a>
                 </ul>
+                <ul class="dropdown-menu">
+                    <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
+                        <a class="nav-link"
+                            href="{{ route('dataPribadi.index') }}">Kelola Data Pribadi</a>
+                </ul>
             </li>
     </aside>
 </div>
