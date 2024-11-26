@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DataPribadiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], funct
     Route::view('/', 'pages.admin.dashboard')->name('admin.dashboard'); //Admin Dashboard
 
     Route::resource('users', DashboardController::class);
+
+    Route::resource('dataPribadi', DataPribadiController::class);
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout'); //Admin Logout
 
