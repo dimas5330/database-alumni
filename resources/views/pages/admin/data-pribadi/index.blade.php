@@ -38,7 +38,8 @@
                                 <div class="float-right">
                                     <form method="GET" action="{{ route('dataPribadi.index') }}">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search" name="name">
+                                            <input type="text" class="form-control" name="search" placeholder="Search"
+                                                value="{{ request('search') }}">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
@@ -112,9 +113,9 @@
 
                                     </table>
                                 </div>
-                                {{-- <div class="float-right">
+                                <div class="float-right">
                                     {{ $dataPribadi->withQueryString()->links() }}
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
