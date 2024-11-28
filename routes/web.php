@@ -21,6 +21,7 @@ Route::view('/', 'pages.auth.login')->name('login');
 Route::post('auth/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
+Route::post('/DataPribadi', [DataPribadiController::class, 'store'])->name('datapribadi.store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], function () {
 
