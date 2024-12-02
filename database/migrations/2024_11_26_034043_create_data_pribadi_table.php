@@ -19,13 +19,13 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->enum('goldar', ['A', 'B', 'AB', 'O']);
+            $table->enum('goldar', ['A', 'B', 'AB', 'O'])->nullable();
             $table->string('alamat');
             $table->string('angkatan');
             $table->string('nama_sekolah');
-            $table->string('pekerjaan');
-            $table->string('nama_kantor');
-            $table->string('alamat_kantor');
+            $table->string('pekerjaan')->nullable();
+            $table->string('nama_kantor')->nullable();
+            $table->string('alamat_kantor')->nullable();
             $table->timestamps();
         });
     }
