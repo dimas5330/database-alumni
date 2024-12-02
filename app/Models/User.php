@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(DataPribadi::class);
     }
+
+    public function dataKeluarga()
+    {
+        return $this->hasOne(DataKeluarga::class);
+    }
 }

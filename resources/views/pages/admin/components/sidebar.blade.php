@@ -9,18 +9,12 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                <ul class="dropdown-menu">
-                    <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
-                        <a class="nav-link"
-                            href="{{ route('users.index') }}">Kelola Users</a>
-                </ul>
-                <ul class="dropdown-menu">
-                    <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
-                        <a class="nav-link"
-                            href="{{ route('dataPribadi.index') }}">Kelola Data Pribadi</a>
-                </ul>
+                <a href="{{route('admin.dashboard')}}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('users.index') }}"><i class="fas fa-fire"></i><span>Kelola Users</span></a>
+                <a href="{{ route('dataPribadi.index') }}"><i class="fas fa-fire"></i><span>Kelola Data
+                        Pribadi</span></a>
+                <a href="{{ route('dataKeluarga.index') }}"><i class="fas fa-fire"></i><span>Kelola Data
+                        Keluarga</span></a>
             </li>
     </aside>
 </div>
