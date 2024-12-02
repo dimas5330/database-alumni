@@ -14,8 +14,6 @@ class DataKeluargaController extends Controller
     //index
     public function index(Request $request)
     {
-        $search = $request->input('search'); // Ambil input pencarian dari request
-
         // Query dengan filter berdasarkan atribut 'name' di tabel 'users'
         $search = $request->input('search'); // Ambil parameter pencarian
 

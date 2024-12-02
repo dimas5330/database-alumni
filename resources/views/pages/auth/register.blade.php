@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('pages.admin.layouts.auth')
 
 @section('title', 'Register')
 
