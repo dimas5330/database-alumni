@@ -42,8 +42,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], functi
 
     Route::view('/', 'pages.user.dashboard')->name('user.dashboard'); //User Dashboard
 
-    Route::resource('userDataPribadi', UserDataPribadiController::class);
-
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout'); //User Logout
 
 });
