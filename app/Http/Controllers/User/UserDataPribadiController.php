@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use App\Models\UserDataPribadi;
 
-class DataPribadiController extends Controller
+class UserDataPribadiController extends Controller
 {
     //store data pribadi
     public function store(Request $request)

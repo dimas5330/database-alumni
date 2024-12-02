@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataPribadiController;
+use App\Http\Controllers\User\UserDataPribadiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,6 @@ Route::view('/', 'pages.auth.login')->name('login');
 Route::post('auth/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
-Route::post('/DataPribadi', [DataPribadiController::class, 'store'])->name('datapribadi.store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], function () {
 
@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], funct
 Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], function () {
 
     Route::view('/', 'pages.user.dashboard')->name('user.dashboard'); //User Dashboard
+
+    Route::resource('userDataPribadi', UserDataPribadiController::class);
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout'); //User Logout
 
