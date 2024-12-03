@@ -14,17 +14,17 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>User Dashboard</h1>
+                <h1>Dashboard Pengguna</h1>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-user-edit"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Isi Data Akun</h4>
+                                <h3>Edit Data Akun</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userprofile.edit')}}" class="stretched-link"></a>
@@ -35,11 +35,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-id-card"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Isi Data Pribadi</h4>
+                                <h3>Isi Data Pribadi</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapribadi.create')}}" class="stretched-link"></a>
@@ -50,11 +50,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Isi Data Keluarga</h4>
+                                <h3>Isi Data Keluarga</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatakeluarga.create')}}" class="stretched-link"></a>
@@ -65,11 +65,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-hands-helping"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Isi Data Pelayanan</h4>
+                                <h3>Isi Data Pelayanan</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapelayanan.create')}}" class="stretched-link"></a>
@@ -82,11 +82,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-id-card-alt"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Edit Data Pribadi</h4>
+                                <h3>Edit Data Pribadi</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapribadi.edit')}}" class="stretched-link"></a>
@@ -97,11 +97,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-user-friends"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Edit Data Keluarga</h4>
+                                <h3>Edit Data Keluarga</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatakeluarga.edit')}}" class="stretched-link"></a>
@@ -112,11 +112,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="fas fa-handshake"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h4>Edit Data Pelayanan</h4>
+                                <h3>Edit Data Pelayanan</h3>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapelayanan.edit')}}" class="stretched-link"></a>
