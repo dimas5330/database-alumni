@@ -80,9 +80,15 @@
                                         </div>
                                     @enderror
                                 </div>
-                        </div>
+                            </div>
 
-                        
+                            <div class="form-group">
+                                <label>Date Time Picker</label>
+                                <input type="text"
+                                    class="form-control datetimepicker">
+                            </div>
+
+
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
                         </div>
