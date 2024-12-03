@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], funct
 
     Route::resource('dataKeluarga', DataKeluargaController::class);
 
+    Route::resource('dataPelayanan', DataPelayananController::class);
+
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout'); //Admin Logout
 
 });

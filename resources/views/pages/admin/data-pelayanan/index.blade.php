@@ -82,7 +82,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $dataKeluarga->withQueryString()->links() }}
+                                    {{ $dataPelayanan->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

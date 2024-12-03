@@ -15,6 +15,8 @@
                         Pribadi</span></a>
                 <a href="{{ route('dataKeluarga.index') }}"><i class="fas fa-fire"></i><span>Kelola Data
                         Keluarga</span></a>
+                <a href="{{ route('dataPelayanan.index') }}"><i class="fas fa-fire"></i><span>Kelola Data
+                        Pelayanan</span></a>
             </li>
     </aside>
 </div>
