@@ -16,16 +16,15 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Form User</h1>
+                <h1>Form Tambah Pengguna</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Users</div>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+                    <div class="breadcrumb-item"><a href="{{ route('users.index') }}">Kelola Pengguna</a></div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Users</h2>
+                <h2 class="section-title">Buat Data Pengguna</h2>
 
 
 
@@ -33,11 +32,11 @@
                     <form action="{{ route('users.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
-                            <h4>Input Text</h4>
+                            <h4>Masukkan Data Pengguna</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Nama</label>
                                 <input type="text"
                                     class="form-control @error('name')
                                 is-invalid
@@ -63,12 +62,12 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
+                                <label>Nomor Handphone</label>
                                 <input type="phone"
                                     class="form-control @error('phone')
                                 is-invalid
                             @enderror"
-                                    name="phone" value="{{ $user->phone }}">
+                                    name="phone">
                                 @error('phone')
                                     <div class="invalid-feedback">
                                         {{ $message }}

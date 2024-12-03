@@ -12,6 +12,6 @@ class DataPribadi extends Seeder
      */
     public function run(): void
     {
-        \App\Models\DataPribadi::factory(20)->create();
+        \App\Models\DataPribadi::factory(1000)->create();
     }
 }

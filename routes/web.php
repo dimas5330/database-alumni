@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DataUserController;
 use App\Http\Controllers\Admin\DataPribadiController;
 use App\Http\Controllers\Admin\DataKeluargaController;
 use App\Http\Controllers\Admin\DataPelayananController;
@@ -30,9 +31,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.regis
 
 Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], function () {
 
-    Route::view('/', 'pages.admin.dashboard')->name('admin.dashboard'); //Admin Dashboard
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    Route::resource('users', DashboardController::class);
+    Route::resource('users', DataUserController::class);
 
     Route::resource('dataPribadi', DataPribadiController::class);
 
@@ -40,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], funct
 
     Route::resource('dataPelayanan', DataPelayananController::class);
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout'); //Admin Logout
+    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 });
 

@@ -1,6 +1,6 @@
 @extends('pages.admin.layouts.app')
 
-@section('title', 'Users')
+@section('title', 'Kelola Pengguna')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,14 +11,13 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Users</h1>
+                <h1>Kelola Pengguna</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('users.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('users.create') }}" class="btn btn-primary">Tambahkan</a>
                 </div>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Users</a></div>
-                    <div class="breadcrumb-item">All Users</div>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+                    <div class="breadcrumb-item"><a href="{{ route('users.index') }}">Kelola Pengguna</a></div>
                 </div>
             </div>
             <div class="section-body">
@@ -27,7 +26,7 @@
                         @include('pages.admin.layouts.alert')
                     </div>
                 </div>
-                <h2 class="section-title">Users</h2>
+                <h2 class="section-title">Daftar Pengguna</h2>
 
                 <div class="row mt-4">
                     <div class="col-12">
@@ -52,11 +51,11 @@
                                     <table class="table-striped table">
                                         <tr>
 
-                                            <th>Name</th>
+                                            <th>Nama</th>
                                             <th>Email</th>
-                                            <th>Phone</th>
+                                            <th>Nomor Handphone</th>
                                             <th>Role</th>
-                                            <th>Action</th>
+                                            <th>Aksi</th>
                                         </tr>
                                         @foreach ($users as $user)
                                             <tr>
