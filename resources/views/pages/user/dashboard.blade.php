@@ -8,6 +8,11 @@
         href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
+    <style>
+        .card-header h5 {
+            text-align: center
+        }
+    </style>
 @endpush
 
 @section('main')
@@ -23,8 +28,8 @@
                             <i class="fas fa-user-edit"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header text-center">
-                                <h3>Edit Data Akun</h3>
+                            <div class="card-header" style="margin: 15px 0;">
+                                <h5>Edit Data Akun</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userprofile.edit')}}" class="stretched-link"></a>
@@ -38,8 +43,8 @@
                             <i class="fas fa-id-card"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header text-center">
-                                <h3>Isi Data Pribadi</h3>
+                            <div class="card-header" style="margin: 15px 0;">
+                                <h5>Isi Data Pribadi</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapribadi.create')}}" class="stretched-link"></a>
@@ -53,8 +58,8 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header text-center">
-                                <h3>Isi Data Keluarga</h3>
+                            <div class="card-header" style="margin: 15px 0;">
+                                <h5>Isi Data Keluarga</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatakeluarga.create')}}" class="stretched-link"></a>
@@ -69,7 +74,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h3>Isi Data Pelayanan</h3>
+                                <h5>Isi Data Pelayanan</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapelayanan.create')}}" class="stretched-link"></a>
@@ -85,8 +90,8 @@
                             <i class="fas fa-id-card-alt"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header text-center">
-                                <h3>Edit Data Pribadi</h3>
+                            <div class="card-header" style="margin: 15px 0;">
+                                <h5>Edit Data Pribadi</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapribadi.edit')}}" class="stretched-link"></a>
@@ -101,7 +106,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h3>Edit Data Keluarga</h3>
+                                <h5>Edit Data Keluarga</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatakeluarga.edit')}}" class="stretched-link"></a>
@@ -116,7 +121,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header text-center">
-                                <h3>Edit Data Pelayanan</h3>
+                                <h5 class="text-center">Edit Data Pelayanan</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapelayanan.edit')}}" class="stretched-link"></a>
