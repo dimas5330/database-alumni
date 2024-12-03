@@ -82,10 +82,19 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Date Time Picker</label>
-                                <input type="text"
-                                    class="form-control datetimepicker">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="d-block">Date Range Picker With Button</label>
+                                    <a href="javascript:;"
+                                        class="btn btn-primary daterange-btn icon-left btn-icon"><i
+                                            class="fas fa-calendar"></i> Choose Date
+                                    </a>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date Picker</label>
+                                    <input type="text"
+                                        class="form-control datepicker">
+                                </div>
                             </div>
 
 
