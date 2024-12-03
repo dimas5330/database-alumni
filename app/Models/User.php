@@ -54,5 +54,9 @@ class User extends Authenticatable
         return $this->hasOne(DataKeluarga::class);
     }
 
-    
+    public function dataPelayanan()
+    {
+        return $this->hasOne(DataPelayanan::class);
+    }
+
 }

@@ -72,7 +72,7 @@
                                 <h4>Isi Data Pelayanan</h4>
                             </div>
                             <div class="card-body">
-                                <a href="#" class="stretched-link"></a>
+                                <a href="{{route('userdatapelayanan.create')}}" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                 <h4>Edit Data Pelayanan</h4>
                             </div>
                             <div class="card-body">
-                                <a href="#" class="stretched-link"></a>
+                                <a href="{{route('userdatapelayanan.edit')}}" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>

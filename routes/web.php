@@ -6,9 +6,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataPribadiController;
 use App\Http\Controllers\Admin\DataKeluargaController;
+use App\Http\Controllers\Admin\DataPelayananController;
 use App\Http\Controllers\UpdateInformationProfileController;
 use App\Http\Controllers\UpdateDataPribadiController;
 use App\Http\Controllers\UpdateDataKeluargaController;
+use App\Http\Controllers\UpdateDataPelayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +73,17 @@ Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], functi
         Route::get('edit', [UpdateDataKeluargaController::class, 'edit'])->name('userdatakeluarga.edit');
 
         Route::put('update', [UpdateDataKeluargaController::class, 'update'])->name('userdatakeluarga.update');
+
+    });
+
+    Route::group(['prefix' => 'data-pelayanan'], function () {
+        Route::get('create', [UpdateDataPelayananController::class, 'create'])->name('userdatapelayanan.create');
+
+        Route::post('store', [UpdateDataPelayananController::class, 'store'])->name('userdatapelayanan.store');
+
+        Route::get('edit', [UpdateDataPelayananController::class, 'edit'])->name('userdatapelayanan.edit');
+
+        Route::put('update', [UpdateDataPelayananController::class, 'update'])->name('userdatapelayanan.update');
 
     });
 });
