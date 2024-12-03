@@ -1,6 +1,6 @@
 @extends('pages.user.layouts.app')
 
-@section('title', 'Isi Data Pribadi')
+@section('title', 'Edit Data Pribadi')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -30,25 +30,28 @@
 
 
                 <div class="card p-4">
-                    <form action="{{ route('userdatapribadi.store') }}" method="POST">
+                    <form action="{{ route('userdatapribadi.update') }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <div class="form-group">
                             <label class="form-label">Jenis Kelamin</label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="jenis_kelamin" value="Pria" class="selectgroup-input" checked="">
+                                    <input type="radio" name="jenis_kelamin" value="Pria" class="selectgroup-input"
+                                        {{ old('jenis_kelamin', $dataPribadi->jenis_kelamin) == 'Pria' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">Pria</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="jenis_kelamin" value="Wanita" class="selectgroup-input">
+                                    <input type="radio" name="jenis_kelamin" value="Wanita" class="selectgroup-input"
+                                        {{ old('jenis_kelamin', $dataPribadi->jenis_kelamin) == 'Wanita' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">Wanita</span>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Tempat Lahir</label>
-                            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir">
+                            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{$dataPribadi->tempat_lahir}}">
                             @error('tempat_lahir')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -57,32 +60,36 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label>
-                            <input type="text" class="form-control datepicker" name="tanggal_lahir">
+                            <input type="text" class="form-control datepicker" name="tanggal_lahir" value="{{$dataPribadi->tanggal_lahir}}">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Golongan Darah</label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="goldar" value="A" class="selectgroup-input" checked="">
+                                    <input type="radio" name="goldar" value="A" class="selectgroup-input"
+                                        {{ old('goldar', $dataPribadi->goldar) == 'A' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">A</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="goldar" value="B" class="selectgroup-input">
+                                    <input type="radio" name="goldar" value="B" class="selectgroup-input"
+                                        {{ old('goldar', $dataPribadi->goldar) == 'B' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">B</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="goldar" value="AB" class="selectgroup-input">
+                                    <input type="radio" name="goldar" value="AB" class="selectgroup-input"
+                                        {{ old('goldar', $dataPribadi->goldar) == 'AB' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">AB</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="goldar" value="O" class="selectgroup-input">
+                                    <input type="radio" name="goldar" value="O" class="selectgroup-input"
+                                        {{ old('goldar', $dataPribadi->goldar) == 'O' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">O</span>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Alamat Tinggal Sekarang</label>
-                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat">
+                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{$dataPribadi->alamat}}">
                             @error('alamat')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -91,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label>Angkatan</label>
-                            <input type="text" class="form-control @error('angkatan') is-invalid @enderror" name="angkatan">
+                            <input type="text" class="form-control @error('angkatan') is-invalid @enderror" name="angkatan" value="{{$dataPribadi->angkatan}}">
                             @error('angkatan')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -100,7 +107,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nama Sekolah / Universitas</label>
-                            <input type="text" class="form-control @error('nama_sekolah') is-invalid @enderror" name="nama_sekolah">
+                            <input type="text" class="form-control @error('nama_sekolah') is-invalid @enderror" name="nama_sekolah" value="{{$dataPribadi->nama_sekolah}}">
                             @error('nama_sekolah')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -109,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <label>Pekerjaan</label>
-                            <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan">
+                            <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" value="{{$dataPribadi->pekerjaan}}">
                             @error('pekerjaan')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -118,7 +125,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nama Kantor</label>
-                            <input type="text" class="form-control @error('nama_kantor') is-invalid @enderror" name="nama_kantor">
+                            <input type="text" class="form-control @error('nama_kantor') is-invalid @enderror" name="nama_kantor" value="{{$dataPribadi->nama_kantor}}">
                             @error('nama_kantor')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -127,7 +134,7 @@
                         </div>
                         <div class="form-group">
                             <label>Alamat Kantor</label>
-                            <input type="text" class="form-control @error('alamat_kantor') is-invalid @enderror" name="alamat_kantor">
+                            <input type="text" class="form-control @error('alamat_kantor') is-invalid @enderror" name="alamat_kantor" value="{{$dataPribadi->alamat_kantor}}">
                             @error('alamat_kantor')
                                 <div class="invalid-feedback">
                                     {{ $message }}

@@ -10,6 +10,7 @@ class DataKeluarga extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'status',
         'nama_pasangan',
         'pekerjaan_pasangan',

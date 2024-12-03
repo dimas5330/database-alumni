@@ -25,4 +25,5 @@ class DataPribadiController extends Controller
             ->paginate(10); // Tambahkan pagination dengan 10 item per halaman
         return view('pages.admin.data-pribadi.index', compact('dataPribadi', 'search'));
     }
+    
 }

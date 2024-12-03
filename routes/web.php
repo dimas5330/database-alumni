@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DataPribadiController;
 use App\Http\Controllers\Admin\DataKeluargaController;
 use App\Http\Controllers\UpdateInformationProfileController;
 use App\Http\Controllers\UpdateDataPribadiController;
+use App\Http\Controllers\UpdateDataKeluargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,5 +56,21 @@ Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], functi
         Route::get('create', [UpdateDataPribadiController::class, 'create'])->name('userdatapribadi.create');
 
         Route::post('store', [UpdateDataPribadiController::class, 'store'])->name('userdatapribadi.store');
+
+        Route::get('edit', [UpdateDataPribadiController::class, 'edit'])->name('userdatapribadi.edit');
+
+        Route::put('update', [UpdateDataPribadiController::class, 'update'])->name('userdatapribadi.update');
+
+    });
+
+    Route::group(['prefix' => 'data-keluarga'], function () {
+        Route::get('create', [UpdateDataKeluargaController::class, 'create'])->name('userdatakeluarga.create');
+
+        Route::post('store', [UpdateDataKeluargaController::class, 'store'])->name('userdatakeluarga.store');
+
+        Route::get('edit', [UpdateDataKeluargaController::class, 'edit'])->name('userdatakeluarga.edit');
+
+        Route::put('update', [UpdateDataKeluargaController::class, 'update'])->name('userdatakeluarga.update');
+
     });
 });
