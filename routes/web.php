@@ -5,9 +5,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataPribadiController;
-use App\Http\Controllers\User\UserDataPribadiController;
 use App\Http\Controllers\Admin\DataKeluargaController;
 use App\Http\Controllers\UpdateInformationProfileController;
+use App\Http\Controllers\UpdateDataPribadiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +45,15 @@ Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], functi
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout'); //User Logout
 
-    Route::get('edit', [UpdateInformationProfileController::class, 'edit'])->name('userprofile.edit');
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('edit', [UpdateInformationProfileController::class, 'edit'])->name('userprofile.edit');
 
-    Route::put('update', [UpdateInformationProfileController::class, 'update'])->name('userprofile.update');
+        Route::put('update', [UpdateInformationProfileController::class, 'update'])->name('userprofile.update');
+    });
 
+    Route::group(['prefix' => 'data-pribadi'], function () {
+        Route::get('create', [UpdateDataPribadiController::class, 'create'])->name('userdatapribadi.create');
+
+        Route::post('store', [UpdateDataPribadiController::class, 'store'])->name('userdatapribadi.store');
+    });
 });
