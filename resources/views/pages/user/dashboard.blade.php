@@ -27,7 +27,7 @@
                                 <h4>Isi Data Akun</h4>
                             </div>
                             <div class="card-body">
-                                <a href="#" class="stretched-link"></a>
+                                <a href="{{route('userprofile.edit')}}" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>

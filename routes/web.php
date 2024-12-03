@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataPribadiController;
 use App\Http\Controllers\User\UserDataPribadiController;
 use App\Http\Controllers\Admin\DataKeluargaController;
+use App\Http\Controllers\UpdateInformationProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +44,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], functi
     Route::view('/', 'pages.user.dashboard')->name('user.dashboard'); //User Dashboard
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout'); //User Logout
+
+    Route::get('edit', [UpdateInformationProfileController::class, 'edit'])->name('userprofile.edit');
+
+    Route::put('update', [UpdateInformationProfileController::class, 'update'])->name('userprofile.update');
 
 });
