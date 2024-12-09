@@ -12,6 +12,8 @@ use App\Http\Controllers\UpdateInformationProfileController;
 use App\Http\Controllers\UpdateDataPribadiController;
 use App\Http\Controllers\UpdateDataKeluargaController;
 use App\Http\Controllers\UpdateDataPelayananController;
+use App\Http\Middleware\PreventAdminAccess;
+use App\Http\Middleware\PreventUserAccess;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ Route::post('auth/authenticate', [LoginController::class, 'authenticate'])->name
 Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate', 'preventUserAccess']], function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
@@ -45,7 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate']], funct
 
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate']], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate', 'preventAdminAccess']], function () {
 
     Route::view('/', 'pages.user.dashboard')->name('user.dashboard'); //User Dashboard
 
