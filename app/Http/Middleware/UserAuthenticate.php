@@ -17,21 +17,20 @@ class UserAuthenticate
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-
-           if ($user) {
+        if ($user) {
                $role = $user->role; // Assuming 'role' is the column name in your users table
 
                // Check if the user is a member and trying to access admin routes
-               if ($role === 'member' && $request->is('admin/*')) {
+                if ($role === 'member' && $request->is('admin/*')) {
                    return redirect('/home'); // Redirect to home or any other page
-               }
+                }
 
                // Check if the user is an admin and trying to access member routes
-               if ($role === 'admin' && $request->is('member/*')) {
+                if ($role === 'admin' && $request->is('member/*')) {
                    return redirect('/admin'); // Redirect to admin dashboard or any other page
-               }
-           }
+                }
+            }
 
-           return $next($request);
+            return $next($request);
     }
 }
