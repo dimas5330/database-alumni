@@ -1,4 +1,4 @@
-@extends('pages.user.layouts.app')
+@extends('pages.admin.layouts.app')
 
 @section('title', 'Isi Data Pribadi')
 
@@ -18,7 +18,7 @@
             <div class="section-header">
                 <h1>Form Isi Data Pribadi</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="{{ route('user.dashboard') }}">Dashboard</a></div>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
                 </div>
             </div>
 
@@ -28,9 +28,8 @@
 
 
                 <div class="card p-4">
-                    <form action="{{ route('userdatapribadi.store') }}" method="POST">
+                    <form action="{{ route('dataPribadi.store') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <div class="form-group">
                             <div class="form-group">
                                 <label>Nama Lengkap</label>

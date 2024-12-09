@@ -12,6 +12,7 @@ class DataPribadi extends Model
 
     protected $fillable = [
         'user_id',
+        'nama_lengkap',
         'jenis_kelamin',
         'tempat_lahir',
         'tanggal_lahir',
@@ -19,6 +20,9 @@ class DataPribadi extends Model
         'alamat',
         'angkatan',
         'nama_sekolah',
+        'pendidikan_terakhir',
+        'fakultas',
+        'jurusan',
         'pekerjaan',
         'nama_kantor',
         'alamat_kantor',

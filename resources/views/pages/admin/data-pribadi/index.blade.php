@@ -12,6 +12,9 @@
         <section class="section">
             <div class="section-header">
                 <h1>Kelola Data Pribadi</h1>
+                <div class="section-header-button">
+                    <a href="{{ route('dataPribadi.create') }}" class="btn btn-primary">Tambahkan</a>
+                </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="{{ route('dataPribadi.index') }}">Kelola Data Pribadi</a></div>
@@ -59,14 +62,18 @@
                                             <th>Email</th>
                                             <th>Angkatan</th>
                                             <th>Nama Sekolah</th>
+                                            <th>Pendidikan Terakhir</th>
+                                            <th>Fakultas</th>
+                                            <th>Jurusan</th>
                                             <th>Pekerjaan</th>
                                             <th>Nama Kantor</th>
                                             <th>Alamat Kantor</th>
+                                            <th>Aksi</th>
                                         </tr>
                                         @foreach ($dataPribadi as $dataPribadis)
                                             <tr>
 
-                                                <td>{{ $dataPribadis->user->name }}
+                                                <td>{{ $dataPribadis->nama_lengkap }}
                                                 </td>
                                                 <td>
                                                     {{ $dataPribadis->jenis_kelamin }}
@@ -95,6 +102,15 @@
                                                     {{ $dataPribadis->nama_sekolah }}
                                                 </td>
                                                 <td>
+                                                    {{ $dataPribadis->pendidikan_terakhir }}
+                                                </td>
+                                                <td>
+                                                    {{ $dataPribadis->fakultas }}
+                                                </td>
+                                                <td>
+                                                    {{ $dataPribadis->jurusan }}
+                                                </td>
+                                                <td>
                                                     {{ $dataPribadis->pekerjaan }}
                                                 </td>
                                                 <td>
@@ -102,6 +118,25 @@
                                                 </td>
                                                 <td>
                                                     {{ $dataPribadis->alamat_kantor }}
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href='{{ route('dataPribadi.edit', $dataPribadis->id) }}'
+                                                            class="btn btn-sm btn-info btn-icon">
+                                                            <i class="fas fa-edit"></i>
+                                                            Edit
+                                                        </a>
+
+                                                        <form action="{{ route('dataPribadi.destroy', $dataPribadis->id) }}"
+                                                            method="POST" class="ml-2">
+                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                            <input type="hidden" name="_token"
+                                                                value="{{ csrf_token() }}" />
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                <i class="fas fa-times"></i> Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
