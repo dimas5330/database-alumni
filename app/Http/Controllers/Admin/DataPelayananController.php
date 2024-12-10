@@ -37,6 +37,7 @@ class DataPelayananController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'nullable',
+            'nama_lengkap' => 'required',
             'pelayanan_perkantas' => 'required',
             'jabatan_pelayanan' => 'required',
             'nama_gereja' => 'required',
@@ -46,6 +47,7 @@ class DataPelayananController extends Controller
         // Create a new data pelayanan with the validated data
         $dataPelayanan = DataPelayanan::create([
             'user_id' => Auth::id(),
+            'nama_lengkap' => $request->nama_lengkap,
             'pelayanan_perkantas' => $request->pelayanan_perkantas,
             'jabatan_pelayanan' => $request->jabatan_pelayanan,
             'nama_gereja' => $request->nama_gereja,
@@ -68,6 +70,7 @@ class DataPelayananController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'nullable',
+            'nama_lengkap' => 'required',
             'pelayanan_perkantas' => 'required',
             'jabatan_pelayanan' => 'required',
             'nama_gereja' => 'required',
@@ -77,6 +80,7 @@ class DataPelayananController extends Controller
         // Update the data pelayanan with the validated data
         $dataPelayanan->update([
             'user_id' => Auth::id(),
+            'nama_lengkap' => $request->nama_lengkap,
             'pelayanan_perkantas' => $request->pelayanan_perkantas,
             'jabatan_pelayanan' => $request->jabatan_pelayanan,
             'nama_gereja' => $request->nama_gereja,

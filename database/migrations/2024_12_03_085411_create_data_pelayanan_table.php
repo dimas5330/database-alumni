@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained(
                 table: 'users', indexName: 'datapelayanan_user_id'
             );
+            $table->string('nama_lengkap');
             $table->text('pelayanan_perkantas');
             $table->text('jabatan_pelayanan');
             $table->string('nama_gereja');

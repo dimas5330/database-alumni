@@ -11,6 +11,7 @@ class DataKeluarga extends Model
 
     protected $fillable = [
         'user_id',
+        'nama_lengkap',
         'status',
         'nama_pasangan',
         'pekerjaan_pasangan',

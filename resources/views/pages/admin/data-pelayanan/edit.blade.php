@@ -28,6 +28,15 @@
                         @method('PUT')
                         <div id="additional-forms">
                             <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap', $dataPelayanan->nama_lengkap) }}">
+                                @error('nama_lengkap')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Pernah Terlibat Pelayanan di Perkantas Semarang</label>
                                 <input type="text" class="form-control @error('pelayanan_perkantas') is-invalid @enderror" name="pelayanan_perkantas" value="{{$dataPelayanan->pelayanan_perkantas}}">
                                 @error('pelayanan_perkantas')

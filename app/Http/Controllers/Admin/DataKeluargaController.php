@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\DataKeluarga;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DataKeluargaController extends Controller
 {
@@ -43,18 +44,20 @@ class DataKeluargaController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'nullable',
+            'nama_lengkap' => 'required',
             'status' => 'required|in:Menikah,Belum Menikah',
-            'nama_pasangan' => 'required',
-            'pekerjaan_pasangan' => 'required',
-            'tempatlahir_pasangan' => 'required',
-           'tanggallahir_pasangan' => 'required',
-            'goldar_pasangan' => 'required',
-            'nama_anak' => 'required',
+            'nama_pasangan' => 'nullable',
+            'pekerjaan_pasangan' => 'nullable',
+            'tempatlahir_pasangan' => 'nullable',
+            'tanggallahir_pasangan' => 'nullable',
+            'goldar_pasangan' => 'nullable',
+            'nama_anak' => 'nullable',
             ]);
 
         // Create a new data keluarga with the validated data
         $dataKeluarga = DataKeluarga::create([
         'user_id' => Auth::id(),
+        'nama_lengkap' => $request->nama_lengkap,
         'status' => $request->status,
         'nama_pasangan' => $request->nama_pasangan,
         'pekerjaan_pasangan' => $request->pekerjaan_pasangan,
@@ -85,18 +88,20 @@ class DataKeluargaController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'nullable',
+            'nama_lengkap' => 'required',
             'status' => 'required|in:Menikah,Belum Menikah',
-            'nama_pasangan' => 'required',
-            'pekerjaan_pasangan' => 'required',
-            'tempatlahir_pasangan' => 'required',
-            'tanggallahir_pasangan' => 'required',
-            'goldar_pasangan' => 'required',
-            'nama_anak' => 'required',
+            'nama_pasangan' => 'nullable',
+            'pekerjaan_pasangan' => 'nullable',
+            'tempatlahir_pasangan' => 'nullable',
+            'tanggallahir_pasangan' => 'nullable',
+            'goldar_pasangan' => 'nullable',
+            'nama_anak' => 'nullable',
         ]);
 
         // Update the data keluarga with the validated data
         $dataKeluarga->update([
             'user_id' => Auth::id(),
+            'nama_lengkap' => $request->nama_lengkap,
             'status' => $request->status,
             'nama_pasangan' => $request->nama_pasangan,
             'pekerjaan_pasangan' => $request->pekerjaan_pasangan,

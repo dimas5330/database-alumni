@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained(
                 table: 'users', indexName: 'datakeluarga_user_id'
             );
+            $table->string('nama_lengkap');
             $table->enum('status', ['Menikah', 'Belum Menikah']);
             $table->string('nama_pasangan')->nullable();
             $table->string('pekerjaan_pasangan')->nullable();

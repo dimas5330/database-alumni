@@ -28,10 +28,19 @@
 
 
                 <div class="card p-4">
-                    <form action="{{ route('datakeluarga.update') }}" method="POST">
+                    <form action="{{ route('dataKeluarga.update', $dataKeluarga->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap', $dataKeluarga->nama_lengkap) }}">
+                            @error('nama_lengkap')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label class="form-label">Status</label>
                             <div class="selectgroup w-100">

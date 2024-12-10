@@ -12,6 +12,9 @@
         <section class="section">
             <div class="section-header">
                 <h1>Kelola Data Keluarga</h1>
+                <div class="section-header-button">
+                    <a href="{{ route('dataKeluarga.create') }}" class="btn btn-primary">Tambahkan</a>
+                </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="{{ route('dataKeluarga.index') }}">Kelola Data Keluarga</a></div>
@@ -49,7 +52,7 @@
                                     <table class="table-striped table">
                                         <tr>
 
-                                            <th>Name</th>
+                                            <th>Nama</th>
                                             <th>Status</th>
                                             <th>Nama Suami / Istri</th>
                                             <th>Pekerjaan Suami / Istri</th>
@@ -57,11 +60,12 @@
                                             <th>Tanggal Lahir Suami / Istri</th>
                                             <th>Golongan Darah Suami / Istri</th>
                                             <th>Nama Anak - Anak</th>
+                                            <th>Aksi</th>
                                         </tr>
                                         @foreach ($dataKeluarga as $data)
                                             <tr>
 
-                                                <td>{{ $data->user->name }}
+                                                <td>{{ $data->nama_lengkap }}
                                                 </td>
                                                 <td>
                                                     {{ $data->status }}
@@ -82,6 +86,25 @@
                                                 </td>
                                                 <td>
                                                     {{ $data->nama_anak }}
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href='{{ route('dataKeluarga.edit', $data->id) }}'
+                                                            class="btn btn-sm btn-info btn-icon">
+                                                            <i class="fas fa-edit"></i>
+                                                            Edit
+                                                        </a>
+
+                                                        <form action="{{ route('dataKeluarga.destroy', $data->id) }}"
+                                                            method="POST" class="ml-2">
+                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                            <input type="hidden" name="_token"
+                                                                value="{{ csrf_token() }}" />
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                <i class="fas fa-times"></i> Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -11,6 +11,7 @@ class DataPelayanan extends Model
 
     protected $fillable = [
         'user_id',
+        'nama_lengkap',
         'pelayanan_perkantas',
         'jabatan_pelayanan',
         'nama_gereja',

@@ -62,7 +62,7 @@
                                         @foreach ($dataPelayanan as $data)
                                             <tr>
 
-                                                <td>{{ $data->user->name }}
+                                                <td>{{ $data->nama_lengkap }}
                                                 </td>
                                                 <td>
                                                     {{ $data->pelayanan_perkantas }}
