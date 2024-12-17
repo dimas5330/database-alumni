@@ -67,7 +67,12 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label>
-                            <input type="text" class="form-control datepicker" name="tanggal_lahir" value="{{$dataPribadi->tanggal_lahir}}">
+                            <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir', $dataPribadi->tanggal_lahir) }}">
+                            @error('tanggal_lahir')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label class="form-label">Golongan Darah</label>
