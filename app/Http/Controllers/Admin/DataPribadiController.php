@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DataPribadi;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class DataPribadiController extends Controller
 {
@@ -41,7 +43,7 @@ class DataPribadiController extends Controller
             'nama_lengkap' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:Laki - Laki,Perempuan',
             'tempat_lahir' => 'required|string',
-            'tanggal_lahir' => 'required|date',
+            'tanggal_lahir' => ['required', 'regex:/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/'],
             'goldar' => 'nullable|in:A,B,AB,O',
             'alamat' => 'required|string',
             'angkatan' => 'required|string',
@@ -54,12 +56,14 @@ class DataPribadiController extends Controller
             'alamat_kantor' => 'nullable|string',
         ]);
 
+        $tanggal_lahir = Carbon::createFromFormat('d/m/Y', $request->tanggal_lahir)->format('Y-m-d');
+
         DataPribadi::create([
             'user_id' => Auth::id(), // Set default value untuk user_id
             'nama_lengkap' => $request->nama_lengkap,
             'jenis_kelamin' => $request->jenis_kelamin,
             'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => $request->tanggal_lahir,
+            'tanggal_lahir' => $tanggal_lahir,
             'goldar' => $request->goldar,
             'alamat' => $request->alamat,
             'angkatan' => $request->angkatan,

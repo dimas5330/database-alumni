@@ -79,7 +79,11 @@
                                                     {{ $data->tempatlahir_pasangan }}
                                                 </td>
                                                 <td>
-                                                    {{ $data->tanggallahir_pasangan }}
+                                                    @if($data->tanggallahir_pasangan)
+                                                        {{ $data->tanggallahir_pasangan->translatedFormat('d F Y') }}
+                                                    @else
+                                                        -
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     {{ $data->goldar_pasangan }}

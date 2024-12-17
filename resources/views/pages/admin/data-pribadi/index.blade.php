@@ -81,7 +81,7 @@
                                                 <td>{{ $dataPribadis->tempat_lahir }}
                                                 </td>
                                                 <td>
-                                                    {{ $dataPribadis->tanggal_lahir }}
+                                                    {{ $dataPribadis->tanggal_lahir->translatedFormat('d F Y') }}
                                                 </td>
                                                 <td>
                                                     {{ $dataPribadis->goldar }}

@@ -36,23 +36,18 @@
 
                 <div class="form-group">
                     <div class="d-block">
-                        <label for="password"
-                            class="control-label">Password</label>
-                        <div class="float-right">
-                            <a href="auth-forgot-password.html"
-                                class="text-small">
-                                Forgot Password?
-                            </a>
+                        <label for="password" class="control-label">Password</label>
+                    </div>
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="toggle-password" style="cursor: pointer;">
+                                <i class="fas fa-eye"></i>
+                            </span>
                         </div>
                     </div>
-                    <input id="password"
-                        type="password"
-                        class="form-control"
-                        name="password"
-                        tabindex="2"
-                        required>
                     <div class="invalid-feedback">
-                        please fill in your password
+                        Mohon masukkan password
                     </div>
                 </div>
 
@@ -60,18 +55,34 @@
                     <button type="submit"
                         class="btn btn-primary btn-lg btn-block"
                         tabindex="4">
-                        Login
+                        Masuk
                     </button>
                 </div>
             </form>
         </div>
     </div>
     <div class="text-muted mt-5 text-center">
-        Don't have an account? <a href="{{route('user.register')}}">Create One</a>
+        Belum mempunyai akun? <a href="{{route('user.register')}}">Buat Akun</a>
     </div>
 @endsection
 
 @push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const togglePassword = document.querySelector('#toggle-password');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle the eye icon
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    });
+</script>
     <!-- JS Libraies -->
 
     <!-- Page Specific JS File -->

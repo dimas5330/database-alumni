@@ -21,6 +21,10 @@ class DataKeluarga extends Model
         'nama_anak',
     ];
 
+    protected $casts = [
+        'tanggallahir_pasangan' => 'datetime'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

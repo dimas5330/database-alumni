@@ -4,7 +4,7 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{ asset('library/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
@@ -179,8 +179,16 @@
 
 @push('scripts')
     <!-- JS Libraies -->
-    <script src="{{ asset('library/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
     <!-- Page Specific JS File -->
-    <script src="{{ asset('js/page/forms-advanced-forms.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
 @endpush

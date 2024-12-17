@@ -28,6 +28,10 @@ class DataPribadi extends Model
         'alamat_kantor',
     ];
 
+    protected $casts = [
+        'tanggal_lahir' => 'datetime'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

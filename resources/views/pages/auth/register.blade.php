@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('user.register.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nama Lengkap</label>
                     <input id="name" type="text"
                         class="form-control @error('name')
                         is-invalid
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone</label>
+                    <label for="phone">Nomor Handphone</label>
                     <input id="phone" type="text"
                         class="form-control @error('phone')
                         is-invalid
@@ -63,12 +63,14 @@
 
                 <div class="form-group">
                     <label for="password" class="d-block">Password</label>
-                    <input id="password" type="password"
-                        class="form-control pwstrength @error('password')
-                        is-invalid
-
-                    @enderror"
-                        data-indicator="pwindicator" name="password">
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control pwstrength @error('password') is-invalid @enderror" data-indicator="pwindicator" name="password">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="toggle-password" style="cursor: pointer;">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
                     @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -78,24 +80,26 @@
                         <div class="bar"></div>
                         <div class="label"></div>
                     </div>
-                </div>
-                <div class="form-group ">
-                    <label for="password2" class="d-block">Password Confirmation</label>
-                    <input id="password2" type="password"
-                        class="form-control @error('password_confirmation')
-                        is-invalid
-                    @enderror"
-                        name="password_confirmation">
-                </div>
-                @error('password_confirmation')
-                    <div class="invalid-feedback">
-                        {{ $message }}
+                    <div class="form-group">
+                        <label for="password2" class="d-block">Konfirmasi Password</label>
+                        <div class="input-group">
+                            <input id="password2" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="toggle-password2" style="cursor: pointer;">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                        @error('password_confirmation')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                @enderror
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        Register
+                        Daftar
                     </button>
                 </div>
             </form>
@@ -104,10 +108,32 @@
 @endsection
 
 @push('scripts')
-    <!-- JS Libraies -->
-    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('library/jquery.pwstrength/jquery.pwstrength.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.querySelector('#toggle-password');
+            const password = document.querySelector('#password');
+            const togglePassword2 = document.querySelector('#toggle-password2');
+            const password2 = document.querySelector('#password2');
 
-    <!-- Page Specific JS File -->
-    <script src="{{ asset('js/page/auth-register.js') }}"></script>
+            togglePassword.addEventListener('click', function (e) {
+                // Toggle the type attribute
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+
+                // Toggle the eye icon
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            togglePassword2.addEventListener('click', function (e) {
+                // Toggle the type attribute
+                const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+                password2.setAttribute('type', type);
+
+                // Toggle the eye icon
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
 @endpush

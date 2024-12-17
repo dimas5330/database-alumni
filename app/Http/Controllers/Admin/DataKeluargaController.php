@@ -6,6 +6,7 @@ use App\Models\DataKeluarga;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class DataKeluargaController extends Controller
 {
@@ -49,10 +50,12 @@ class DataKeluargaController extends Controller
             'nama_pasangan' => 'nullable',
             'pekerjaan_pasangan' => 'nullable',
             'tempatlahir_pasangan' => 'nullable',
-            'tanggallahir_pasangan' => 'nullable',
+            'tanggallahir_pasangan' => ['nullable', 'regex:/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/'],
             'goldar_pasangan' => 'nullable',
             'nama_anak' => 'nullable',
             ]);
+
+            $tanggallahir_pasangan = $request->tanggallahir_pasangan ? Carbon::createFromFormat('d/m/Y', $request->tanggallahir_pasangan)->format('Y-m-d') : null;
 
         // Create a new data keluarga with the validated data
         $dataKeluarga = DataKeluarga::create([
@@ -62,7 +65,7 @@ class DataKeluargaController extends Controller
         'nama_pasangan' => $request->nama_pasangan,
         'pekerjaan_pasangan' => $request->pekerjaan_pasangan,
         'tempatlahir_pasangan' => $request->tempatlahir_pasangan,
-        'tanggallahir_pasangan' => $request->tanggallahir_pasangan,
+        'tanggallahir_pasangan' => $tanggallahir_pasangan,
         'goldar_pasangan' => $request->goldar_pasangan,
         'nama_anak' => $request->nama_anak,
         ]);

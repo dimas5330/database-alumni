@@ -4,7 +4,7 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{ asset('library/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
@@ -90,7 +90,7 @@
                                 <label class="form-label">Golongan Darah Pasangan</label>
                                 <div class="selectgroup w-100">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="goldar_pasangan" value="A" class="selectgroup-input" checked="">
+                                        <input type="radio" name="goldar_pasangan" value="A" class="selectgroup-input">
                                         <span class="selectgroup-button">A</span>
                                     </label>
                                     <label class="selectgroup-item">
@@ -147,8 +147,16 @@
     </script>
 
     <!-- JS Libraies -->
-    <script src="{{ asset('library/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
     <!-- Page Specific JS File -->
-    <script src="{{ asset('js/page/forms-advanced-forms.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
 @endpush
