@@ -17,15 +17,8 @@ class DataPribadiController extends Controller
         $search = $request->input('search'); // Ambil input pencarian dari request
 
         // Query dengan filter berdasarkan atribut 'name' di tabel 'users'
-        $search = $request->input('search'); // Ambil parameter pencarian
-
-        $dataPribadi = DataPribadi::with('user') // Pastikan memuat relasi 'user'
-            ->when($search, function ($query, $search) {
-                $query->whereHas('user', function ($query) use ($search) {
-                    $query->where('name', 'like', '%' . $search . '%'); // Filter berdasarkan name
-                });
-            })
-            ->paginate(10); // Tambahkan pagination dengan 10 item per halaman
+        $search = $request->get('search');
+        $dataPribadi = DataPribadi::where('nama_lengkap', 'LIKE', '%' . $search . '%')->paginate(10);// Tambahkan pagination dengan 10 item per halaman
         return view('pages.admin.data-pribadi.index', compact('dataPribadi', 'search'));
     }
 

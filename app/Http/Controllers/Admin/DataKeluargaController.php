@@ -16,16 +16,9 @@ class DataKeluargaController extends Controller
     //index
     public function index(Request $request)
     {
-        // Query dengan filter berdasarkan atribut 'name' di tabel 'users'
-        $search = $request->input('search'); // Ambil parameter pencarian
-
-        $dataKeluarga = DataKeluarga::with('user') // Pastikan memuat relasi 'user'
-            ->when($search, function ($query, $search) {
-                $query->whereHas('user', function ($query) use ($search) {
-                    $query->where('name', 'like', '%' . $search . '%'); // Filter berdasarkan name
-                });
-            })
-            ->paginate(10); // Tambahkan pagination dengan 10 item per halaman
+        //filter berdasarkan nama_lengkap
+        $search = $request->get('search');
+        $dataKeluarga = DataKeluarga::where('nama_lengkap', 'LIKE', '%' . $search . '%')->paginate(10);
         return view('pages.admin.data-keluarga.index', compact('dataKeluarga', 'search'));
     }
 
