@@ -21,6 +21,7 @@ class UpdateDataPelayananController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'required|exists:users,id',
+            'nama_lengkap' => 'required',
             'pelayanan_perkantas' => 'required',
             'jabatan_pelayanan' => 'required',
             'nama_gereja' => 'required',
@@ -30,6 +31,7 @@ class UpdateDataPelayananController extends Controller
         // Create a new data pelayanan with the validated data
         $dataPelayanan = DataPelayanan::create([
             'user_id' => Auth::user()->id,
+            'nama_lengkap' => $request->nama_lengkap,
             'pelayanan_perkantas' => $request->pelayanan_perkantas,
             'jabatan_pelayanan' => $request->jabatan_pelayanan,
             'nama_gereja' => $request->nama_gereja,

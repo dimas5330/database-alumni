@@ -46,6 +46,11 @@
                             </span>
                         </div>
                     </div>
+                    <div class="float-right">
+                        <a href="" class="text-small">
+                            Lupa Password?
+                        </a>
+                    </div>
                     <div class="invalid-feedback">
                         Mohon masukkan password
                     </div>

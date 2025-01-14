@@ -31,7 +31,16 @@
                     <form action="{{ route('userdatakeluarga.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <div class="form-group">
+                            <div class="form-group">
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap') }}">
+                                @error('nama_lengkap')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                             <label class="form-label">Status</label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
@@ -135,6 +144,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             toggleForm();
         });
+
+        //Tambahkan Profesi ke dalam tabel data pribadi
+        //Tambahkan fitur lupa kata sandi
+        //Tambahkan link di sidebar
     </script>
 
     <!-- JS Libraies -->

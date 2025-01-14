@@ -21,6 +21,7 @@ class UpdateDataKeluargaController extends Controller
         // Validate the request
         $request->validate([
             'user_id' => 'required|exists:users,id',
+            'nama_lengkap' => 'required',
             'status' => 'required|in:Menikah,Belum Menikah',
             'nama_pasangan' => '',
             'pekerjaan_pasangan' => '',
@@ -33,6 +34,7 @@ class UpdateDataKeluargaController extends Controller
         // Create a new data keluarga with the validated data
         $dataKeluarga = DataKeluarga::create([
             'user_id' => Auth::user()->id,
+            'nama_lengkap' => $request->nama_lengkap,
             'status' => $request->status,
             'nama_pasangan' => $request->nama_pasangan,
             'pekerjaan_pasangan' => $request->pekerjaan_pasangan,
