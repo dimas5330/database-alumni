@@ -24,6 +24,7 @@ class DataPribadi extends Model
         'fakultas',
         'jurusan',
         'pekerjaan',
+        'profesi',
         'nama_kantor',
         'alamat_kantor',
     ];

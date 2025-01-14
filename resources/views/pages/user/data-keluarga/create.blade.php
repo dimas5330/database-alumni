@@ -145,9 +145,7 @@
             toggleForm();
         });
 
-        //Tambahkan Profesi ke dalam tabel data pribadi
-        //Tambahkan fitur lupa kata sandi
-        //Tambahkan link di sidebar
+
     </script>
 
     <!-- JS Libraies -->

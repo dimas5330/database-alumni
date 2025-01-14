@@ -66,6 +66,7 @@
                                             <th>Fakultas</th>
                                             <th>Jurusan</th>
                                             <th>Pekerjaan</th>
+                                            <th>Profesi</th>
                                             <th>Nama Kantor</th>
                                             <th>Alamat Kantor</th>
                                             <th>Aksi</th>
@@ -112,6 +113,9 @@
                                                 </td>
                                                 <td>
                                                     {{ $dataPribadis->pekerjaan }}
+                                                </td>
+                                                <td>
+                                                    {{ $dataPribadis->profesi }}
                                                 </td>
                                                 <td>
                                                     {{ $dataPribadis->nama_kantor }}

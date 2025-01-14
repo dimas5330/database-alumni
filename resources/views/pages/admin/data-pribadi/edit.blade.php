@@ -143,6 +143,15 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label>Profesi</label>
+                            <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi', $dataPribadi->profesi) }}">
+                            @error('profesi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label>Nama Kantor</label>
                             <input type="text" class="form-control @error('nama_kantor') is-invalid @enderror" name="nama_kantor" value="{{ old('nama_kantor', $dataPribadi->nama_kantor) }}">
                             @error('nama_kantor')

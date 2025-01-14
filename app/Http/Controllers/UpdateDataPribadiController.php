@@ -34,6 +34,7 @@ class UpdateDataPribadiController extends Controller
             'fakultas' => 'nullable|string',
             'jurusan' => 'nullable|string',
             'pekerjaan' => 'nullable|string',
+            'profesi' => 'nullable|string',
             'nama_kantor' => 'nullable|string',
             'alamat_kantor' => 'nullable|string',
         ]);
@@ -53,6 +54,7 @@ class UpdateDataPribadiController extends Controller
             'fakultas' => $request->fakultas,
             'jurusan' => $request->jurusan,
             'pekerjaan' => $request->pekerjaan,
+            'profesi' => $request->profesi,
             'nama_kantor' => $request->nama_kantor,
             'alamat_kantor' => $request->alamat_kantor,
         ]);
@@ -89,6 +91,7 @@ class UpdateDataPribadiController extends Controller
             'fakultas' => 'nullable|string',
             'jurusan' => 'nullable|string',
             'pekerjaan' => 'nullable|string',
+            'profesi' => 'nullable|string',
             'nama_kantor' => 'nullable|string',
             'alamat_kantor' => 'nullable|string',
         ]);
@@ -107,6 +110,7 @@ class UpdateDataPribadiController extends Controller
             'fakultas' => $request->fakultas,
             'jurusan' => $request->jurusan,
             'pekerjaan' => $request->pekerjaan,
+            'profesi' => $request->profesi,
             'nama_kantor' => $request->nama_kantor,
             'alamat_kantor' => $request->alamat_kantor,
         ]);
