@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -27,6 +28,7 @@ use App\Http\Middleware\PreventUserAccess;
 */
 
 Route::view('/', 'pages.auth.login')->name('login');
+Route::get('send-mail', [MailController::class, 'index']);
 Route::post('auth/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
