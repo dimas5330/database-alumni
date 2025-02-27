@@ -64,37 +64,29 @@
                 <div class="form-group">
                     <label for="password" class="d-block">Password</label>
                     <div class="input-group">
-                        <input id="password" type="password" class="form-control pwstrength @error('password') is-invalid @enderror" data-indicator="pwindicator" name="password">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
                         <div class="input-group-append">
                             <span class="input-group-text" id="toggle-password" style="cursor: pointer;">
                                 <i class="fas fa-eye"></i>
                             </span>
                         </div>
+                        @error('password')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    @error('password')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="pwindicator" class="pwindicator">
-                        <div class="bar"></div>
-                        <div class="label"></div>
-                    </div>
+                </div>
                     <div class="form-group">
-                        <label for="password2" class="d-block">Konfirmasi Password</label>
+                        <label for="password_confirmation">Konfirmasi Password</label>
                         <div class="input-group">
-                            <input id="password2" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
+                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
                             <div class="input-group-append">
                                 <span class="input-group-text" id="toggle-password2" style="cursor: pointer;">
                                     <i class="fas fa-eye"></i>
                                 </span>
                             </div>
                         </div>
-                        @error('password_confirmation')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
 
                 <div class="form-group">

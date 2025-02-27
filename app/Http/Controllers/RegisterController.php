@@ -27,6 +27,19 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|string|max:15',
             'password' => 'required|string|min:8|confirmed',
+        ],
+        [
+            'name.required' => 'Nama wajib diisi',
+            'name.string' => 'Kolom nama tidak boleh menggunakan angka',
+            'name.max' => 'Nama tidak boleh melebih maksimal karakter',
+            'email.required' => 'Email wajib diisi',
+            'email.email' => 'Format email tidak valid',
+            'email.unique' => 'Email yang anda masukkan sudah terpakai',
+            'phone.required' => 'Nomor telepon wajib diisi',
+            'phone.max' => 'Nomor telepon tidak valid',
+            'password.required' => 'Password wajib diisi',
+            'password.min' => 'Password minimal 8 karakter',
+            'password.confirmed' => 'Konfirmasi password tidak cocok',
         ]);
 
         //if validator error send an error message
@@ -58,7 +71,7 @@ class RegisterController extends Controller
 
         // Simpan email ke sesi untuk keperluan resend OTP
         Session::put('register_email', $user->email);
-        
+
         return redirect()->route('otp.verify.form')->with('success', 'Registration successful! Please check your email for the OTP.');
     }
 }
