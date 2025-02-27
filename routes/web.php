@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\OtpVerificationController;
+use App\Http\Controllers\Auth\OtpResendController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -32,6 +34,10 @@ Route::get('send-mail', [MailController::class, 'index']);
 Route::post('auth/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
+Route::get('otp/verify', [OtpVerificationController::class, 'showVerifyForm'])->name('otp.verify.form');
+Route::post('otp/verify', [OtpVerificationController::class, 'verify'])->name('otp.verify.submit');
+
+Route::get('otp/resend', [OtpResendController::class, 'resend'])->name('otp.resend');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate', 'preventUserAccess']], function () {
 
