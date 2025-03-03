@@ -4,8 +4,7 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/bootstrap-social/bootstrap-social.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-social/bootstrap-social.css') }}">
 @endpush
 
 @section('main')
@@ -14,24 +13,23 @@
             <h4>Login</h4>
         </div>
 
+        @if ($errors->has('login'))
+        <div class="alert alert-danger">
+            {{ $errors->first('login') }}
+        </div>
+        @endif
+
         <div class="card-body">
-            <form method="POST"
-                action="{{ route('authenticate')}}"
-                class="needs-validation"
-                novalidate="">
+            <form method="POST" action="{{ route('authenticate') }}" class="needs-validation" novalidate="">
                 @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email"
-                        type="email"
-                        class="form-control"
-                        name="email"
-                        tabindex="1"
-                        required
+                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required
                         autofocus>
                     <div class="invalid-feedback">
                         Please fill in your email
                     </div>
+
                 </div>
 
                 <div class="form-group">
@@ -57,9 +55,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit"
-                        class="btn btn-primary btn-lg btn-block"
-                        tabindex="4">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                         Masuk
                     </button>
                 </div>
@@ -67,27 +63,27 @@
         </div>
     </div>
     <div class="text-muted mt-5 text-center">
-        Belum mempunyai akun? <a href="{{route('user.register')}}">Buat Akun</a>
+        Belum mempunyai akun? <a href="{{ route('user.register') }}">Buat Akun</a>
     </div>
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const togglePassword = document.querySelector('#toggle-password');
-        const password = document.querySelector('#password');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.querySelector('#toggle-password');
+            const password = document.querySelector('#password');
 
-        togglePassword.addEventListener('click', function (e) {
-            // Toggle the type attribute
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
+            togglePassword.addEventListener('click', function(e) {
+                // Toggle the type attribute
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
 
-            // Toggle the eye icon
-            this.querySelector('i').classList.toggle('fa-eye');
-            this.querySelector('i').classList.toggle('fa-eye-slash');
+                // Toggle the eye icon
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
         });
-    });
-</script>
+    </script>
     <!-- JS Libraies -->
 
     <!-- Page Specific JS File -->

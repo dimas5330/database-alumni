@@ -23,6 +23,12 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
 
+        if (!Auth::attempt($credentials)) {
+            return back()->withErrors([
+                'login' => 'Email atau password tidak valid',
+            ])->withInput($request->only('email')); // Biarkan email tetap terisi
+        }
+
         if (Auth::attempt($credentials)) {
             if (auth()->user()->role == 'admin') {
                 $request->session()->regenerate();
