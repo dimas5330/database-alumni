@@ -1,4 +1,5 @@
 @extends('pages.user.layouts.app')
+@include('sweetalert::alert')
 
 @section('title', 'Edit Data Pribadi')
 
@@ -45,12 +46,12 @@
                             <label class="form-label">Jenis Kelamin</label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="jenis_kelamin" value="Pria" class="selectgroup-input"
+                                    <input type="radio" name="jenis_kelamin" value="Laki - Laki" class="selectgroup-input"
                                         {{ old('jenis_kelamin', $dataPribadi->jenis_kelamin) == 'Pria' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">Pria</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="jenis_kelamin" value="Wanita" class="selectgroup-input"
+                                    <input type="radio" name="jenis_kelamin" value="Perempuan" class="selectgroup-input"
                                         {{ old('jenis_kelamin', $dataPribadi->jenis_kelamin) == 'Wanita' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">Wanita</span>
                                 </label>

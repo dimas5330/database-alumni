@@ -1,4 +1,5 @@
 @extends('pages.user.layouts.app')
+@include('sweetalert::alert')
 
 @section('title', 'Isi Data Pribadi')
 
@@ -97,7 +98,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Angkatan</label>
+                            <label>Angkatan Lulus SMA</label>
                             <input type="text" class="form-control @error('angkatan') is-invalid @enderror" name="angkatan">
                             @error('angkatan')
                                 <div class="invalid-feedback">

@@ -1,4 +1,5 @@
 @extends('pages.admin.layouts.app')
+@include('sweetalert::alert')
 
 @section('title', 'Edit Data Pelayanan')
 

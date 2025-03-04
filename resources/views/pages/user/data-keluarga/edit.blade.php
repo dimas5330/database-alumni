@@ -1,4 +1,5 @@
 @extends('pages.user.layouts.app')
+@include('sweetalert::alert')
 
 @section('title', 'Edit Data Keluarga')
 

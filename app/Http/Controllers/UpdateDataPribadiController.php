@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DataPribadi;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UpdateDataPribadiController extends Controller
 {
@@ -60,6 +61,7 @@ class UpdateDataPribadiController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
+        Alert::success('Hore!', 'Post Created Successfully');
         return redirect()->route('user.dashboard');
     }
 
@@ -116,7 +118,8 @@ class UpdateDataPribadiController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        return redirect()->route('user.dashboard')->with('success', 'Data Pribadi Berhasil Diupdate');
+        Alert::success('Hore!', 'Post Created Successfully');
+        return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Pribadi Berhasil Diupdate');
     }
 
 }
