@@ -38,6 +38,9 @@ class DataUserController extends Controller
             'email' =>'required|email|unique:users',
             'phone' =>'required|numeric|min:10',
             'password' => 'required|min:8',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // store the request...
@@ -68,6 +71,9 @@ class DataUserController extends Controller
             'email' => 'required',
             'phone' =>'required|numeric|min:10',
             'role' => 'required|in:admin,member',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // update the request...

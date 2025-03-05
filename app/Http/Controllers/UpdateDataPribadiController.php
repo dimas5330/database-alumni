@@ -38,6 +38,9 @@ class UpdateDataPribadiController extends Controller
             'profesi' => 'nullable|string',
             'nama_kantor' => 'nullable|string',
             'alamat_kantor' => 'nullable|string',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Create a new data pribadi with the validated data
@@ -96,6 +99,9 @@ class UpdateDataPribadiController extends Controller
             'profesi' => 'nullable|string',
             'nama_kantor' => 'nullable|string',
             'alamat_kantor' => 'nullable|string',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Update the data pribadi of the authenticated user with the validated data

@@ -30,6 +30,9 @@ class UpdateDataKeluargaController extends Controller
             'tanggallahir_pasangan' => '',
             'goldar_pasangan' => '',
             'nama_anak' => '',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Create a new data keluarga with the validated data
@@ -73,6 +76,9 @@ class UpdateDataKeluargaController extends Controller
             'tanggallahir_pasangan' => '',
             'goldar_pasangan' => '',
             'nama_anak' => '',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Update the data keluarga of the authenticated user with the validated data

@@ -48,6 +48,9 @@ class DataPribadiController extends Controller
             'profesi' => 'nullable|string',
             'nama_kantor' => 'nullable|string',
             'alamat_kantor' => 'nullable|string',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         $tanggal_lahir = Carbon::createFromFormat('d/m/Y', $request->tanggal_lahir)->format('Y-m-d');
@@ -100,6 +103,9 @@ class DataPribadiController extends Controller
             'profesi' => 'nullable|string',
             'nama_kantor' => 'nullable|string',
             'alamat_kantor' => 'nullable|string',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         $dataPribadi = DataPribadi::findOrFail($id);

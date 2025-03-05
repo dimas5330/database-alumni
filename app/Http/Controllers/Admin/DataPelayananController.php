@@ -35,6 +35,9 @@ class DataPelayananController extends Controller
             'jabatan_pelayanan' => 'required',
             'nama_gereja' => 'required',
             'pelayanan_sekarang' => 'required',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Create a new data pelayanan with the validated data
@@ -68,6 +71,9 @@ class DataPelayananController extends Controller
             'jabatan_pelayanan' => 'required',
             'nama_gereja' => 'required',
             'pelayanan_sekarang' => 'required',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Update the data pelayanan with the validated data

@@ -46,6 +46,9 @@ class DataKeluargaController extends Controller
             'tanggallahir_pasangan' => ['nullable', 'regex:/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/'],
             'goldar_pasangan' => 'nullable',
             'nama_anak' => 'nullable',
+            ],
+            [
+                'required' => 'Kolom ini wajib di isi',
             ]);
 
             $tanggallahir_pasangan = $request->tanggallahir_pasangan ? Carbon::createFromFormat('d/m/Y', $request->tanggallahir_pasangan)->format('Y-m-d') : null;
@@ -92,6 +95,9 @@ class DataKeluargaController extends Controller
             'tanggallahir_pasangan' => 'nullable',
             'goldar_pasangan' => 'nullable',
             'nama_anak' => 'nullable',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         // Update the data keluarga with the validated data

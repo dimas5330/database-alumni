@@ -19,6 +19,9 @@ class LoginController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:8',
+        ],
+        [
+            'required' => 'Kolom ini wajib di isi',
         ]);
 
         $credentials = $request->only('email', 'password');
