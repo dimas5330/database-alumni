@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    <style>
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+    </style>
 @endpush
 
 @section('main')
@@ -26,15 +32,13 @@
             <div class="section-body">
                 <h2 class="section-title">Edit Data Keluarga</h2>
 
-
-
                 <div class="card p-4">
                     <form action="{{ route('dataKeluarga.update', $dataKeluarga->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <div class="form-group">
-                            <label>Nama Lengkap</label>
+                            <label class="required-field">Nama Lengkap</label>
                             <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap', $dataKeluarga->nama_lengkap) }}">
                             @error('nama_lengkap')
                                 <div class="invalid-feedback">
@@ -43,10 +47,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Status</label>
+                            <label class="required-field">Status</label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="status" value="Menikah" class="selectgroup-input" checked="" onclick="toggleForm()"
+                                    <input type="radio" name="status" value="Menikah" class="selectgroup-input" onclick="toggleForm()"
                                     {{ old('status', $dataKeluarga->status) == 'Menikah' ? 'checked' : '' }}>
                                     <span class="selectgroup-button">Menikah</span>
                                 </label>
@@ -60,8 +64,8 @@
 
                         <div id="additional-forms">
                             <div class="form-group">
-                                <label>Nama Pasangan</label>
-                                <input type="text" class="form-control @error('nama_pasangan') is-invalid @enderror" name="nama_pasangan" value="{{$dataKeluarga->nama_pasangan}}">
+                                <label class="required-field">Nama Pasangan</label>
+                                <input type="text" class="form-control @error('nama_pasangan') is-invalid @enderror" name="nama_pasangan" value="{{ old('nama_pasangan', $dataKeluarga->nama_pasangan) }}">
                                 @error('nama_pasangan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -69,8 +73,8 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Pekerjaan Pasangan</label>
-                                <input type="text" class="form-control @error('pekerjaan_pasangan') is-invalid @enderror" name="pekerjaan_pasangan" value="{{$dataKeluarga->pekerjaan_pasangan}}">
+                                <label class="required-field">Pekerjaan Pasangan</label>
+                                <input type="text" class="form-control @error('pekerjaan_pasangan') is-invalid @enderror" name="pekerjaan_pasangan" value="{{ old('pekerjaan_pasangan', $dataKeluarga->pekerjaan_pasangan) }}">
                                 @error('pekerjaan_pasangan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -78,8 +82,8 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Tempat Lahir Pasangan</label>
-                                <input type="text" class="form-control @error('tempatlahir_pasangan') is-invalid @enderror" name="tempatlahir_pasangan" value="{{$dataKeluarga->tempatlahir_pasangan}}">
+                                <label class="required-field">Tempat Lahir Pasangan</label>
+                                <input type="text" class="form-control @error('tempatlahir_pasangan') is-invalid @enderror" name="tempatlahir_pasangan" value="{{ old('tempatlahir_pasangan', $dataKeluarga->tempatlahir_pasangan) }}">
                                 @error('tempatlahir_pasangan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -87,7 +91,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Tanggal Lahir Pasangan</label>
+                                <label class="required-field">Tanggal Lahir Pasangan</label>
                                 <input type="date" class="form-control @error('tanggallahir_pasangan') is-invalid @enderror" name="tanggallahir_pasangan" value="{{ old('tanggallahir_pasangan', $dataKeluarga->tanggallahir_pasangan) }}">
                                 @error('tanggallahir_pasangan')
                                     <div class="invalid-feedback">
@@ -96,10 +100,10 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Golongan Darah Pasangan</label>
+                                <label class="required-field">Golongan Darah Pasangan</label>
                                 <div class="selectgroup w-100">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="goldar_pasangan" value="A" class="selectgroup-input" checked=""
+                                        <input type="radio" name="goldar_pasangan" value="A" class="selectgroup-input"
                                         {{ old('goldar_pasangan', $dataKeluarga->goldar_pasangan) == 'A' ? 'checked' : '' }}>
                                         <span class="selectgroup-button">A</span>
                                     </label>
@@ -121,8 +125,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Nama Anak</label>
-                                <input type="text" class="form-control @error('nama_anak') is-invalid @enderror" name="nama_anak" value="{{$dataKeluarga->nama_anak}}">
+                                <label class="required-field">Nama Anak</label>
+                                <input type="text" class="form-control @error('nama_anak') is-invalid @enderror" name="nama_anak" value="{{ old('nama_anak', $dataKeluarga->nama_anak) }}">
                                 @error('nama_anak')
                                     <div class="invalid-feedback">
                                         {{ $message }}

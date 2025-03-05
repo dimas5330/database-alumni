@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    <style>
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+    </style>
 @endpush
 
 @section('main')
@@ -28,7 +34,7 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label>Nama Lengkap</label>
+                            <label class="required-field">Nama Lengkap</label>
                             <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap', $dataPribadi->nama_lengkap) }}">
                             @error('nama_lengkap')
                                 <div class="invalid-feedback">
@@ -37,7 +43,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Jenis Kelamin</label>
+                            <label class="required-field">Jenis Kelamin</label>
                             <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
                                 <option value="Laki - Laki" {{ old('jenis_kelamin', $dataPribadi->jenis_kelamin) == 'Laki - Laki' ? 'selected' : '' }}>Laki - Laki</option>
                                 <option value="Perempuan" {{ old('jenis_kelamin', $dataPribadi->jenis_kelamin) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
@@ -49,7 +55,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Tempat Lahir</label>
+                            <label class="required-field">Tempat Lahir</label>
                             <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{ old('tempat_lahir', $dataPribadi->tempat_lahir) }}">
                             @error('tempat_lahir')
                                 <div class="invalid-feedback">
@@ -58,7 +64,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Tanggal Lahir</label>
+                            <label class="required-field">Tanggal Lahir</label>
                             <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir', $dataPribadi->tanggal_lahir) }}">
                             @error('tanggal_lahir')
                                 <div class="invalid-feedback">
@@ -67,7 +73,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Golongan Darah</label>
+                            <label class="required-field">Golongan Darah</label>
                             <select class="form-control @error('goldar') is-invalid @enderror" name="goldar">
                                 <option value="A" {{ old('goldar', $dataPribadi->goldar) == 'A' ? 'selected' : '' }}>A</option>
                                 <option value="B" {{ old('goldar', $dataPribadi->goldar) == 'B' ? 'selected' : '' }}>B</option>
@@ -81,7 +87,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Alamat</label>
+                            <label class="required-field">Alamat</label>
                             <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat', $dataPribadi->alamat) }}">
                             @error('alamat')
                                 <div class="invalid-feedback">
@@ -90,7 +96,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Angkatan</label>
+                            <label class="required-field">Angkatan</label>
                             <input type="text" class="form-control @error('angkatan') is-invalid @enderror" name="angkatan" value="{{ old('angkatan', $dataPribadi->angkatan) }}">
                             @error('angkatan')
                                 <div class="invalid-feedback">
@@ -99,7 +105,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Nama Sekolah</label>
+                            <label class="required-field">Nama Sekolah</label>
                             <input type="text" class="form-control @error('nama_sekolah') is-invalid @enderror" name="nama_sekolah" value="{{ old('nama_sekolah', $dataPribadi->nama_sekolah) }}">
                             @error('nama_sekolah')
                                 <div class="invalid-feedback">
@@ -108,7 +114,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Pendidikan Terakhir</label>
+                            <label class="required-field">Pendidikan Terakhir</label>
                             <input type="text" class="form-control @error('pendidikan_terakhir') is-invalid @enderror" name="pendidikan_terakhir" value="{{ old('pendidikan_terakhir', $dataPribadi->pendidikan_terakhir) }}">
                             @error('pendidikan_terakhir')
                                 <div class="invalid-feedback">

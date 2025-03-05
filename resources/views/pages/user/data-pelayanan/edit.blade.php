@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    <style>
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+    </style>
 @endpush
 
 @section('main')
@@ -26,18 +32,16 @@
             <div class="section-body">
                 <h2 class="section-title">Edit Data Pelayanan</h2>
 
-
-
                 <div class="card p-4">
-                    <form action="{{ route('userdatapelayanan.update') }}" method="POST">
+                    <form action="{{ route('userdatapelayanan.update', $dataPelayanan->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-                            <div id="additional-forms">
+                        <div id="additional-forms">
                             <div class="form-group">
-                                <label>Pernah Terlibat Pelayanan di Perkantas Semarang</label>
-                                <input type="text" class="form-control @error('pelayanan_perkantas') is-invalid @enderror" name="pelayanan_perkantas" value="{{$dataPelayanan->pelayanan_perkantas}}">
+                                <label class="required-field">Pernah Terlibat Pelayanan di Perkantas Semarang</label>
+                                <input type="text" class="form-control @error('pelayanan_perkantas') is-invalid @enderror" name="pelayanan_perkantas" value="{{ old('pelayanan_perkantas', $dataPelayanan->pelayanan_perkantas) }}">
                                 @error('pelayanan_perkantas')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -45,10 +49,9 @@
                                 @enderror
                             </div>
                             <div class="form-group row mb-0">
-                                <label class="col-sm-12 col-form-label">Sebutkan kapan terlibat dalam pelayanan tersebut diatas dan menjabat sebagai apa?</label>
+                                <label class="col-sm-12 col-form-label required-field">Sebutkan kapan terlibat dalam pelayanan tersebut diatas dan menjabat sebagai apa?</label>
                                 <div class="col-sm-12">
-                                    <textarea class="form-control"
-                                        data-height="150" @error('jabatan_pelayanan') is-invalid @enderror name="jabatan_pelayanan">{{ old('jabatan_pelayanan', $dataPelayanan->jabatan_pelayanan) }}</textarea>
+                                    <textarea class="form-control @error('jabatan_pelayanan') is-invalid @enderror" data-height="150" name="jabatan_pelayanan">{{ old('jabatan_pelayanan', $dataPelayanan->jabatan_pelayanan) }}</textarea>
                                     @error('jabatan_pelayanan')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -58,8 +61,8 @@
                             </div>
                             <div id="additional-forms">
                                 <div class="form-group">
-                                    <label>Berjemaat di Gereja Mana?</label>
-                                    <input type="text" class="form-control @error('nama_gereja') is-invalid @enderror" name="nama_gereja" value="{{$dataPelayanan->nama_gereja}}">
+                                    <label class="required-field">Berjemaat di Gereja Mana?</label>
+                                    <input type="text" class="form-control @error('nama_gereja') is-invalid @enderror" name="nama_gereja" value="{{ old('nama_gereja', $dataPelayanan->nama_gereja) }}">
                                     @error('nama_gereja')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -68,10 +71,9 @@
                                 </div>
                             </div>
                             <div class="form-group row mb-0">
-                                <label class="col-sm-12 col-form-label">Sebutkan keterlibatan Pelayanan saat ini, dimana dan sebagai apa?</label>
+                                <label class="col-sm-12 col-form-label required-field">Sebutkan keterlibatan Pelayanan saat ini, dimana dan sebagai apa?</label>
                                 <div class="col-sm-12">
-                                    <textarea class="form-control"
-                                        data-height="150" @error('pelayanan_sekarang') is-invalid @enderror name="pelayanan_sekarang">{{ old('pelayanan_sekarang', $dataPelayanan->pelayanan_sekarang) }}</textarea>
+                                    <textarea class="form-control @error('pelayanan_sekarang') is-invalid @enderror" data-height="150" name="pelayanan_sekarang">{{ old('pelayanan_sekarang', $dataPelayanan->pelayanan_sekarang) }}</textarea>
                                     @error('pelayanan_sekarang')
                                         <div class="invalid-feedback">
                                             {{ $message }}
