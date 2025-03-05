@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DataPelayanan;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UpdateDataPelayananController extends Controller
 {
@@ -39,7 +40,8 @@ class UpdateDataPelayananController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        return redirect()->route('user.dashboard');
+        Alert::success('Berhasil!', 'Data Pelayanan Berhasil Disimpan');
+        return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Pelayanan Berhasil Disimpan');
     }
 
     //edit
@@ -75,6 +77,7 @@ class UpdateDataPelayananController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        return redirect()->route('user.dashboard');
+        Alert::success('Berhasil!', 'Data Pelayanan Berhasil Diupdate');
+        return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Pelayan Berhasil Diupdate');
     }
 }

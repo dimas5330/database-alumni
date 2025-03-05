@@ -61,8 +61,8 @@ class UpdateDataPribadiController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        Alert::success('Hore!', 'Post Created Successfully');
-        return redirect()->route('user.dashboard');
+        Alert::success('Berhasil!', 'Data anda berhasil disimpan');
+        return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Pribadi Berhasil Disimpa ');
     }
 
     //edit
@@ -118,7 +118,7 @@ class UpdateDataPribadiController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        Alert::success('Hore!', 'Post Created Successfully');
+        Alert::success('Berhasil!', 'Data Pribadi Berhasil Diupdate');
         return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Pribadi Berhasil Diupdate');
     }
 

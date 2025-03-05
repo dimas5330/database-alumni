@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DataKeluarga;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UpdateDataKeluargaController extends Controller
 {
@@ -45,7 +46,8 @@ class UpdateDataKeluargaController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        return redirect()->route('user.dashboard');
+        Alert::success('Berhasil!', 'Data Keluarga Berhasil Disimpan');
+        return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Keluarga Berhasil Disimpan');
     }
 
     //edit
@@ -86,7 +88,8 @@ class UpdateDataKeluargaController extends Controller
         ]);
 
         // Redirect to the dashboard page with a success message
-        return redirect()->route('user.dashboard')->with('success', 'Data Pribadi Berhasil Diupdate');
+        Alert::success('Berhasil!', 'Data Keluarga Berhasil Diupdate');
+        return redirect()->route('user.dashboard')->withSucessMessage('success', 'Data Keluarga Berhasil Diupdate');
 
     }
 }
