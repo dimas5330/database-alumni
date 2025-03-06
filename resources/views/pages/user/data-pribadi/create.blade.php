@@ -121,7 +121,12 @@
                         </div>
                         <div class="form-group">
                             <label class="required-field">Pendidikan Terakhir</label>
-                            <input type="text" class="form-control @error('pendidikan_terakhir') is-invalid @enderror" name="pendidikan_terakhir" value="{{ old('pendidikan_terakhir') }}">
+                            <select class="form-control @error('pendidikan_terakhir') is-invalid @enderror" name="pendidikan_terakhir">
+                                <option value="">Pilih Pendidikan Terakhir</option>
+                                <option value="SMA" {{ old('pendidikan_terakhir') == 'SMA' ? 'selected' : '' }}>SMA</option>
+                                <option value="Diploma" {{ old('pendidikan_terakhir') == 'Diploma' ? 'selected' : '' }}>Diploma</option>
+                                <option value="Sarjana" {{ old('pendidikan_terakhir') == 'Sarjana' ? 'selected' : '' }}>Sarjana</option>
+                            </select>
                             @error('pendidikan_terakhir')
                                 <div class="invalid-feedback">
                                     {{ $message }}
