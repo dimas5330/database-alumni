@@ -61,7 +61,16 @@
                                             <th>Phone</th>
                                             <th>Alamat</th>
                                             <th>Email</th>
-                                            <th>Angkatan</th>
+                                            <th>
+                                                <a href="{{ route('dataPribadi.index', ['sort' => 'angkatan', 'order' => request('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                                    Angkatan
+                                                    @if (request('sort') === 'angkatan')
+                                                        <i class="fas fa-sort-{{ request('order') === 'asc' ? 'up' : 'down' }}"></i>
+                                                    @else
+                                                        <i class="fas fa-sort"></i>
+                                                    @endif
+                                                </a>
+                                            </th>
                                             <th>Nama Sekolah</th>
                                             <th>Pendidikan Terakhir</th>
                                             <th>Fakultas</th>

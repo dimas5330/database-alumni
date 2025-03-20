@@ -15,11 +15,17 @@ class DataPribadiController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search'); // Ambil input pencarian dari request
+        $sort = $request->input('sort', 'nama_lengkap'); // Default sorting by 'nama_lengkap'
+        $order = $request->input('order', 'asc'); // Default order is ascending
 
-        // Query dengan filter berdasarkan atribut 'name' di tabel 'users'
-        $search = $request->get('search');
-        $dataPribadi = DataPribadi::where('nama_lengkap', 'LIKE', '%' . $search . '%')->paginate(10);// Tambahkan pagination dengan 10 item per halaman
-        return view('pages.admin.data-pribadi.index', compact('dataPribadi', 'search'));
+        // Query with search and sorting
+        $dataPribadi = DataPribadi::when($search, function ($query, $search) {
+                return $query->where('nama_lengkap', 'LIKE', '%' . $search . '%');
+            })
+            ->orderBy($sort, $order) // Apply sorting
+            ->paginate(10); // Pagination with 10 items per page
+
+        return view('pages.admin.data-pribadi.index', compact('dataPribadi', 'search', 'sort', 'order'));
     }
 
     //create
