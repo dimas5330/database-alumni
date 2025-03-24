@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function index()
     {
         // Hitung total users
-        $totalUsers = User::count();
+        $totalDataPribadi = DataPribadi::count();
 
         // Ambil data tahun angkatan dan jumlah alumni dari tabel data_pribadi
         $alumniData = DB::table('data_pribadis')

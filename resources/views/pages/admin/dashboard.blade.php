@@ -35,7 +35,7 @@
                                 <h4>Total Alumni</h4>
                             </div>
                             <div class="card-body">
-                                {{ $totalUsers }}
+                                {{ $totalDataPribadi }}
                             </div>
                         </div>
                     </div>
