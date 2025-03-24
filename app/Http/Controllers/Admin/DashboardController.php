@@ -23,6 +23,6 @@ class DashboardController extends Controller
             ->get();
 
         // Kirimkan data ke view
-        return view('pages.admin.dashboard', compact('totalUsers', 'alumniData'));
+        return view('pages.admin.dashboard', compact('totalDataPribadi', 'alumniData'));
     }
 }
