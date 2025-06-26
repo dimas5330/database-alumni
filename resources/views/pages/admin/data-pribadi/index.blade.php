@@ -6,6 +6,7 @@
 @push('style')
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endpush
 
 @section('main')
@@ -49,20 +50,21 @@
 
                                 <div class="clearfix mb-3"></div>
 
-                                <div class="table-responsive">
-                                    <table class="table-striped table">
+                                <div class="table-responsive" style="height: 500px; overflow-y: auto;">
+                                    <table class="table" style="background-color: #F2F2F2;">
+                                        <thead class="sticky-header" style="position: sticky; top: 0; background-color: #2B3B8F; z-index: 10;">
                                         <tr>
 
-                                            <th>Name</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Tempat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Golongan Darah</th>
-                                            <th>Phone</th>
-                                            <th>Alamat</th>
-                                            <th>Email</th>
-                                            <th>
-                                                <a href="{{ route('dataPribadi.index', ['sort' => 'angkatan', 'order' => request('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                            <th class="text-center" style="color: white">Name</th>
+                                            <th class="text-center" style="color: white">Jenis Kelamin</th>
+                                            <th class="text-center" style="color: white">Tempat Lahir</th>
+                                            <th class="text-center" style="color: white">Tanggal Lahir</th>
+                                            <th class="text-center" style="color: white">Golongan Darah</th>
+                                            <th class="text-center" style="color: white">Phone</th>
+                                            <th class="text-center" style="color: white">Alamat</th>
+                                            <th class="text-center" style="color: white">Email</th>
+                                            <th class="text-center" style="color: white">
+                                                <a href="{{ route('dataPribadi.index', ['sort' => 'angkatan', 'order' => request('order') === 'asc' ? 'desc' : 'asc']) }}" style="color: inherit; text-decoration: none;">
                                                     Angkatan
                                                     @if (request('sort') === 'angkatan')
                                                         <i class="fas fa-sort-{{ request('order') === 'asc' ? 'up' : 'down' }}"></i>
@@ -71,16 +73,17 @@
                                                     @endif
                                                 </a>
                                             </th>
-                                            <th>Nama Sekolah</th>
-                                            <th>Pendidikan Terakhir</th>
-                                            <th>Fakultas</th>
-                                            <th>Jurusan</th>
-                                            <th>Pekerjaan</th>
-                                            <th>Profesi</th>
-                                            <th>Nama Kantor</th>
-                                            <th>Alamat Kantor</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center" style="color:white">Nama Sekolah</th>
+                                            <th class="text-center" style="color:white">Pendidikan Terakhir</th>
+                                            <th class="text-center" style="color:white">Fakultas</th>
+                                            <th class="text-center" style="color:white">Jurusan</th>
+                                            <th class="text-center" style="color:white">Profesi</th>
+                                            <th class="text-center" style="color:white">Nama Kantor</th>
+                                            <th class="text-center" style="color:white">Pekerjaan</th>
+                                            <th class="text-center" style="color:white">Alamat Kantor</th>
+                                            <th class="text-center" style="color:white">Aksi</th>
                                         </tr>
+                                        </thead>
                                         @foreach ($dataPribadi as $dataPribadis)
                                             <tr>
 

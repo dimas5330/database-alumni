@@ -6,6 +6,7 @@
 @push('style')
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endpush
 
 @section('main')
@@ -48,16 +49,19 @@
 
                                 <div class="clearfix mb-3"></div>
 
-                                <div class="table-responsive">
-                                    <table class="table-striped table">
+                                <div class="table-responsive" style="height: 500px; overflow-y: auto;">
+                                    <table class="table" style="background-color: #F2F2F2;">
+                                        <thead class="sticky-header" style="position: sticky; top: 0; background-color: #2B3B8F; z-index: 10;">
                                         <tr>
 
-                                            <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Nomor Handphone</th>
-                                            <th>Role</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center" style="color: white">Nama</th>
+                                            <th class="text-center" style="color: white">Email</th>
+                                            <th class="text-center" style="color: white">Nomor Handphone</th>
+                                            <th class="text-center" style="color: white">Role</th>
+                                            <th class="text-center" style="color: white">Dibuat Pada Tanggal</th>
+                                            <th class="text-center" style="color: white">Aksi</th>
                                         </tr>
+                                        </thead>
                                         @foreach ($users as $user)
                                             <tr>
 

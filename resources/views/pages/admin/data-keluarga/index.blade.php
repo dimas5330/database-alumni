@@ -49,19 +49,20 @@
 
                                 <div class="clearfix mb-3"></div>
 
-                                <div class="table-responsive">
-                                    <table class="table-striped table">
+                               <div class="table-responsive" style="height: 500px; overflow-y: auto;">
+                                    <table class="table" style="background-color: #F2F2F2;">
+                                        <thead class="sticky-header" style="position: sticky; top: 0; background-color: #2B3B8F; z-index: 10;">
                                         <tr>
 
-                                            <th>Nama</th>
-                                            <th>Status</th>
-                                            <th>Nama Suami / Istri</th>
-                                            <th>Pekerjaan Suami / Istri</th>
-                                            <th>Tempat Lahir Suami / Istri</th>
-                                            <th>Tanggal Lahir Suami / Istri</th>
-                                            <th>Golongan Darah Suami / Istri</th>
-                                            <th>Nama Anak - Anak</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center" style="color: white">Nama</th>
+                                            <th class="text-center" style="color: white">Status</th>
+                                            <th class="text-center" style="color: white">Nama Suami / Istri</th>
+                                            <th class="text-center" style="color: white">Pekerjaan Suami / Istri</th>
+                                            <th class="text-center" style="color: white">Tempat Lahir Suami / Istri</th>
+                                            <th class="text-center" style="color: white">Tanggal Lahir Suami / Istri</th>
+                                            <th class="text-center" style="color: white">Golongan Darah Suami / Istri</th>
+                                            <th class="text-center" style="color: white">Nama Anak - Anak</th>
+                                            <th class="text-center" style="color: white">Aksi</th>
                                         </tr>
                                         @foreach ($dataKeluarga as $data)
                                             <tr>

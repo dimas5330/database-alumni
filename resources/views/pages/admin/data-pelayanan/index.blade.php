@@ -49,16 +49,17 @@
 
                                 <div class="clearfix mb-3"></div>
 
-                                <div class="table-responsive">
-                                    <table class="table-striped table">
+                                <div class="table-responsive" style="height: 500px; overflow-y: auto;">
+                                    <table class="table" style="background-color: #F2F2F2;">
+                                        <thead class="sticky-header" style="position: sticky; top: 0; background-color: #2B3B8F; z-index: 10;">
                                         <tr>
 
-                                            <th>Name</th>
-                                            <th>Pelayanan Perkantas</th>
-                                            <th>Waktu & Jabatan Pelayanan Perkantas</th>
-                                            <th>Nama Gereja</th>
-                                            <th>Pelayanan Sekarang</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center" style="color: white">Name</th>
+                                            <th class="text-center" style="color: white">Pelayanan Perkantas</th>
+                                            <th class="text-center" style="color: white">Waktu & Jabatan Pelayanan Perkantas</th>
+                                            <th class="text-center" style="color: white">Nama Gereja</th>
+                                            <th class="text-center" style="color: white">Pelayanan Sekarang</th>
+                                            <th class="text-center" style="color: white">Aksi</th>
                                         </tr>
                                         @foreach ($dataPelayanan as $data)
                                             <tr>
