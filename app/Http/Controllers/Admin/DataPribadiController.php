@@ -18,12 +18,19 @@ class DataPribadiController extends Controller
         $sort = $request->input('sort', 'nama_lengkap'); // Default sorting by 'nama_lengkap'
         $order = $request->input('order', 'asc'); // Default order is ascending
 
-        // Query with search and sorting
-        $dataPribadi = DataPribadi::when($search, function ($query, $search) {
-                return $query->where('nama_lengkap', 'LIKE', '%' . $search . '%');
-            })
-            ->orderBy($sort, $order) // Apply sorting
-            ->paginate(10); // Pagination with 10 items per page
+        // Query with search
+        $query = DataPribadi::when($search, function ($query, $search) {
+            return $query->where('nama_lengkap', 'LIKE', '%' . $search . '%');
+        });
+
+        // Handle special sorting for 'angkatan' column to sort numerically
+        if ($sort === 'angkatan') {
+            $query->orderByRaw("CAST(angkatan AS UNSIGNED) $order");
+        } else {
+            $query->orderBy($sort, $order);
+        }
+
+        $dataPribadi = $query->paginate(10); // Pagination with 10 items per page
 
         return view('pages.admin.data-pribadi.index', compact('dataPribadi', 'search', 'sort', 'order'));
     }

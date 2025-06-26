@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('rahasia123'),
             'role' => 'member',
         ]);
+
+        // Call the DataPribadiSeeder
+        $this->call(DataPribadiSeeder::class);
     }
 }
