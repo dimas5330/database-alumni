@@ -64,7 +64,7 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .card-statistic-1 {
-                height: 180px !important;
+                height: 100px !important;
             }
             
             .card-statistic-1 .card-icon {
