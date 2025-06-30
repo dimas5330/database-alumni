@@ -64,6 +64,7 @@
                                             <th class="text-center" style="color: white">Nama Anak - Anak</th>
                                             <th class="text-center" style="color: white">Aksi</th>
                                         </tr>
+                                        </thead>
                                         @foreach ($dataKeluarga as $data)
                                             <tr>
 
