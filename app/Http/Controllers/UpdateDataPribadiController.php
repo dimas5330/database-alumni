@@ -73,6 +73,12 @@ class UpdateDataPribadiController extends Controller
     {
         // Get the data pribadi of the authenticated user
         $dataPribadi = DataPribadi::where('user_id', Auth::user()->id)->first();
+        
+        if (!$dataPribadi) {
+            return redirect()
+                ->route('user.dashboard')
+                ->with('error', 'Data tidak ditemukan! Mohon isi data terlebih dahulu.');
+        }
 
         // Return the view with the data pribadi
         return view('pages.user.data-pribadi.edit', compact('dataPribadi'));

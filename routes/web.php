@@ -57,7 +57,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate', 'preven
 
 Route::group(['prefix' => 'user', 'middleware' => ['user.authenticate', 'preventAdminAccess']], function () {
 
-    Route::view('/', 'pages.user.dashboard')->name('user.dashboard'); //User Dashboard
+    Route::view('/', 'pages.user.dashboard-new')->name('user.dashboard'); //User Dashboard
+
+    Route::view('/edit', 'pages.user.dashboard-edit')->name('useredit.dashboard'); //User Dashboard
+
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout'); //User Logout
 
