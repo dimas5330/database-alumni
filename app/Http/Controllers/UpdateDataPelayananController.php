@@ -52,6 +52,12 @@ class UpdateDataPelayananController extends Controller
     {
         // Get the data pelayanan of the authenticated user
         $dataPelayanan = DataPelayanan::where('user_id', Auth::user()->id)->first();
+        
+        if (!$dataPelayanan) {
+            return redirect()
+                ->route('user.dashboard')
+                ->with('error', 'Data tidak ditemukan! Mohon isi data terlebih dahulu.');
+        }
 
         // Return the view with the data pelayanan
         return view('pages.user.data-pelayanan.edit', compact('dataPelayanan'));

@@ -82,7 +82,7 @@
                         <div class="input-group">
                             <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
                             <div class="input-group-append">
-                                <span class="input-group-text" id="toggle-password2" style="cursor: pointer;">
+                                <span class="input-group-text" id="toggle-password-confirmation" style="cursor: pointer;">
                                     <i class="fas fa-eye"></i>
                                 </span>
                             </div>
@@ -104,8 +104,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             const togglePassword = document.querySelector('#toggle-password');
             const password = document.querySelector('#password');
-            const togglePassword2 = document.querySelector('#toggle-password2');
-            const password2 = document.querySelector('#password2');
+            const togglePasswordConfirmation = document.querySelector('#toggle-password-confirmation');
+            const passwordConfirmation = document.querySelector('#password_confirmation');
 
             togglePassword.addEventListener('click', function (e) {
                 // Toggle the type attribute
@@ -117,10 +117,10 @@
                 this.querySelector('i').classList.toggle('fa-eye-slash');
             });
 
-            togglePassword2.addEventListener('click', function (e) {
+            togglePasswordConfirmation.addEventListener('click', function (e) {
                 // Toggle the type attribute
-                const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
-                password2.setAttribute('type', type);
+                const type = passwordConfirmation.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordConfirmation.setAttribute('type', type);
 
                 // Toggle the eye icon
                 this.querySelector('i').classList.toggle('fa-eye');

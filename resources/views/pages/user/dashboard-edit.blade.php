@@ -12,6 +12,70 @@
         .card-header h5 {
             text-align: center
         }
+        
+        /* CSS untuk membuat semua card sama ukuran */
+        .card-statistic-1 {
+            height: 100px !important;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        
+        .card-statistic-1 .card-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .card-statistic-1 .card-header {
+            margin: 15px 0 !important;
+            flex-shrink: 0;
+        }
+        
+        .card-statistic-1 .card-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-statistic-1 .card-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .card-statistic-1 .card-icon i {
+            font-size: 40px;
+            color: white;
+        }
+        
+        /* Efek hover untuk card */
+        .card-statistic-1:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-statistic-1 {
+                height: 180px !important;
+            }
+            
+            .card-statistic-1 .card-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .card-statistic-1 .card-icon i {
+                font-size: 30px;
+            }
+        }
     </style>
 @endpush
 
@@ -19,16 +83,18 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Dashboard Pengguna</h1>
+                <h1>Dashboard Pengguna - Edit Data</h1>
             </div>
+            
+            <!-- Row pertama dengan 3 card -->
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-user-edit"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header" style="margin: 15px 0;">
+                            <div class="card-header">
                                 <h5>Edit Data Akun</h5>
                             </div>
                             <div class="card-body">
@@ -37,60 +103,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="card card-statistic-1">
-                        <div class="card-icon bg-primary">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <div class="card-wrap">
-                            <div class="card-header" style="margin: 15px 0;">
-                                <h5>Isi Data Pribadi</h5>
-                            </div>
-                            <div class="card-body">
-                                <a href="{{route('userdatapribadi.create')}}" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="card card-statistic-1">
-                        <div class="card-icon bg-primary">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="card-wrap">
-                            <div class="card-header" style="margin: 15px 0;">
-                                <h5>Isi Data Keluarga</h5>
-                            </div>
-                            <div class="card-body">
-                                <a href="{{route('userdatakeluarga.create')}}" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="card card-statistic-1">
-                        <div class="card-icon bg-primary">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <div class="card-wrap">
-                            <div class="card-header text-center">
-                                <h5>Isi Data Pelayanan</h5>
-                            </div>
-                            <div class="card-body">
-                                <a href="{{route('userdatapelayanan.create')}}" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-id-card-alt"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header" style="margin: 15px 0;">
+                            <div class="card-header">
                                 <h5>Edit Data Pribadi</h5>
                             </div>
                             <div class="card-body">
@@ -99,13 +119,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-user-friends"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header text-center">
+                            <div class="card-header">
                                 <h5>Edit Data Keluarga</h5>
                             </div>
                             <div class="card-body">
@@ -114,14 +135,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            </div>
+            
+            <!-- Row kedua untuk card tambahan -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="card-wrap">
-                            <div class="card-header text-center">
-                                <h5 class="text-center">Edit Data Pelayanan</h5>
+                            <div class="card-header">
+                                <h5>Edit Data Pelayanan</h5>
                             </div>
                             <div class="card-body">
                                 <a href="{{route('userdatapelayanan.edit')}}" class="stretched-link"></a>
@@ -130,7 +155,9 @@
                     </div>
                 </div>
             </div>
+            
         </section>
+    </div>
 @endsection
 
 @push('scripts')

@@ -20,20 +20,22 @@ class UpdateDataKeluargaController extends Controller
     public function store(Request $request)
     {
         // Validate the request
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'nama_lengkap' => 'required',
-            'status' => 'required|in:Menikah,Belum Menikah',
-            'nama_pasangan' => '',
-            'pekerjaan_pasangan' => '',
-            'tempatlahir_pasangan' => '',
-            'tanggallahir_pasangan' => '',
-            'goldar_pasangan' => '',
-            'nama_anak' => '',
-        ],
-        [
-            'required' => 'Kolom ini wajib di isi',
-        ]);
+        $request->validate(
+            [
+                'user_id' => 'required|exists:users,id',
+                'nama_lengkap' => 'required',
+                'status' => 'required|in:Menikah,Belum Menikah',
+                'nama_pasangan' => '',
+                'pekerjaan_pasangan' => '',
+                'tempatlahir_pasangan' => '',
+                'tanggallahir_pasangan' => '',
+                'goldar_pasangan' => '',
+                'nama_anak' => '',
+            ],
+            [
+                'required' => 'Kolom ini wajib di isi',
+            ]
+        );
 
         // Create a new data keluarga with the validated data
         $dataKeluarga = DataKeluarga::create([
@@ -59,6 +61,12 @@ class UpdateDataKeluargaController extends Controller
         // Get the data keluarga of the authenticated user
         $dataKeluarga = DataKeluarga::where('user_id', Auth::user()->id)->first();
 
+        if (!$dataKeluarga) {
+            return redirect()
+                ->route('user.dashboard')
+                ->with('error', 'Data tidak ditemukan! Mohon isi data terlebih dahulu.');
+        }
+
         // Return the view with the data keluarga
         return view('pages.user.data-keluarga.edit', compact('dataKeluarga'));
     }
@@ -67,19 +75,21 @@ class UpdateDataKeluargaController extends Controller
     public function update(Request $request)
     {
         // Validate the request
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'status' => 'required',
-            'nama_pasangan' => '',
-            'pekerjaan_pasangan' => '',
-            'tempatlahir_pasangan' => '',
-            'tanggallahir_pasangan' => '',
-            'goldar_pasangan' => '',
-            'nama_anak' => '',
-        ],
-        [
-            'required' => 'Kolom ini wajib di isi',
-        ]);
+        $request->validate(
+            [
+                'user_id' => 'required|exists:users,id',
+                'status' => 'required',
+                'nama_pasangan' => '',
+                'pekerjaan_pasangan' => '',
+                'tempatlahir_pasangan' => '',
+                'tanggallahir_pasangan' => '',
+                'goldar_pasangan' => '',
+                'nama_anak' => '',
+            ],
+            [
+                'required' => 'Kolom ini wajib di isi',
+            ]
+        );
 
         // Update the data keluarga of the authenticated user with the validated data
         DataKeluarga::where('user_id', Auth::user()->id)->update([
