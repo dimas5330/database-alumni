@@ -61,6 +61,7 @@
                                             <th class="text-center" style="color: white">Pelayanan Sekarang</th>
                                             <th class="text-center" style="color: white">Aksi</th>
                                         </tr>
+                                        </thead>
                                         @foreach ($dataPelayanan as $data)
                                             <tr>
 
