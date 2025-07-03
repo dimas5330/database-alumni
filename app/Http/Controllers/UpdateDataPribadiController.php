@@ -14,7 +14,14 @@ class UpdateDataPribadiController extends Controller
     //create
     public function create()
     {
-        return view('pages.user.data-pribadi.create');
+        $dataPribadi = DataPribadi::where('user_id', Auth::user()->id)->first();
+        if ($dataPribadi) {
+            return redirect()
+                ->route('user.dashboard')
+                ->with('error', 'Data sudah ada! Silakan edit data jika ingin mengubahnya.');
+        } else {
+            return view('pages.user.data-pribadi.create');
+        }
     }
 
     //store data pribadi

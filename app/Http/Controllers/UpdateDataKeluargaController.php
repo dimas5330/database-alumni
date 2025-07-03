@@ -13,7 +13,14 @@ class UpdateDataKeluargaController extends Controller
     //create
     public function create()
     {
-        return view('pages.user.data-keluarga.create');
+        $dataKeluarga = DataKeluarga::where('user_id', Auth::user()->id)->first();
+        if ($dataKeluarga) {
+            return redirect()
+                ->route('user.dashboard')
+                ->with('error', 'Data sudah ada! Silakan edit data jika ingin mengubahnya.');
+        } else {
+            return view('pages.user.data-keluarga.create');
+        }
     }
 
     //store data keluarga

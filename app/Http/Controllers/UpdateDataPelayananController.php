@@ -13,7 +13,14 @@ class UpdateDataPelayananController extends Controller
     //create
     public function create()
     {
-        return view('pages.user.data-pelayanan.create');
+        $dataPelayanan = DataPelayanan::where('user_id', Auth::user()->id)->first();
+        if ($dataPelayanan) {
+            return redirect()
+                ->route('user.dashboard')
+                ->with('error', 'Data sudah ada! Silakan edit data jika ingin mengubahnya.');
+        } else {
+            return view('pages.user.data-pelayanan.create');
+        }
     }
 
     //store data pelayanan

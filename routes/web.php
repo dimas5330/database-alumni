@@ -17,7 +17,6 @@ use App\Http\Controllers\UpdateDataKeluargaController;
 use App\Http\Controllers\UpdateDataPelayananController;
 use App\Http\Middleware\PreventAdminAccess;
 use App\Http\Middleware\PreventUserAccess;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +35,6 @@ Route::get('/register', [RegisterController::class, 'index'])->name('user.regist
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
 Route::get('otp/verify', [OtpVerificationController::class, 'showVerifyForm'])->name('otp.verify.form');
 Route::post('otp/verify', [OtpVerificationController::class, 'verify'])->name('otp.verify.submit');
-
 Route::get('otp/resend', [OtpResendController::class, 'resend'])->name('otp.resend');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['user.authenticate', 'preventUserAccess']], function () {
